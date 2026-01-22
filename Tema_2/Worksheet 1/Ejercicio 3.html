@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Contador de 60 segundos</title>
+    </head>
+    <body>
+    <h1>Contador regresivo:</h1>
+    <p id="contador">60</p>
+    <script>
+        let tiempo = 60; // segundos
+        const p = document.getElementById("contador");
+        function actualizarContador() {
+        if (tiempo >= 0) {
+            p.textContent = tiempo;
+            tiempo--; // disminuye en 1 segundo
+            setTimeout(actualizarContador, 1000); // llama a la función después de 1 segundo
+        } else {
+            p.textContent = "¡Tiempo terminado!";
+        }
+        }
+        // Inicia el contador
+        actualizarContador();
+    </script>
+    </body>
+</html>

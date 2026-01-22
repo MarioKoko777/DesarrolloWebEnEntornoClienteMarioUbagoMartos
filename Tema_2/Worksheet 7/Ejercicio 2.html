@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Geolocalización con Leaflet</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            #map {
+                height: 500px;
+                width: 100%;
+                border: 1px solid #444;
+            }
+            p { font-size: 1.1em; }
+        </style>
+    </head>
+    <body>
+        <h1>Mi ubicación en tiempo real</h1>
+        <p id="estado">Comprobando geolocalización...</p>
+        <p>Latitud: <span id="lat"></span></p>
+        <p>Longitud: <span id="lon"></span></p>
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            let map, marcador;
+            // Inicializar mapa centrado en coordenadas provisionales
+            map = L.map('map').setView([0, 0], 2); // zoom 2 para ver todo el mundo
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            // Función para actualizar la posición del usuario
+            function actualizarPosicion(pos) {
+                const lat = pos.coords.latitude;
+                const lon = pos.coords.longitude;
+                document.getElementById('lat').textContent = lat.toFixed(6);
+                document.getElementById('lon').textContent = lon.toFixed(6);
+                document.getElementById('estado').textContent = "Ubicación encontrada.";
+                // Centrar mapa en la posición del usuario
+                map.setView([lat, lon], 16);
+                // Si ya hay un marcador, actualizar su posición
+                if (marcador) {
+                    marcador.setLatLng([lat, lon]);
+                } else {
+                    // Crear marcador en la posición actual
+                    marcador = L.marker([lat, lon]).addTo(map)
+                        .bindPopup("¡Aquí estás!").openPopup();
+                }
+            }
+            // Función de manejo de errores
+            function manejarError(error) {
+                let mensaje = "";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        mensaje = "Permiso denegado por el usuario.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        mensaje = "Posición no disponible.";
+                        break;
+                    case error.TIMEOUT:
+                        mensaje = "Tiempo de espera agotado.";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        mensaje = "Error desconocido.";
+                        break;
+                }
+                document.getElementById('estado').textContent = mensaje;
+            }
+            // Comprobar geolocalización
+            if ("geolocation" in navigator) {
+                document.getElementById('estado').textContent = "Geolocalización disponible. Obteniendo posición...";
+                navigator.geolocation.watchPosition(actualizarPosicion, manejarError, {
+                    enableHighAccuracy: true,
+                    maximumAge: 1000,
+                    timeout: 5000
+                });
+            } else {
+                document.getElementById('estado').textContent = "Geolocalización no disponible en este navegador.";
+            }
+        </script>
+    </body>
+</html>

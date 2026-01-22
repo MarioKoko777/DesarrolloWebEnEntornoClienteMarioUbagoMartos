@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Analizador de Texto</title>
+    </head>
+    <body>
+        <h1>Analizador de Texto</h1>
+        <label for="cadena">Ingresa una cadena: </label>
+        <input type="text" id="cadena">
+        <button onclick="analizarCadena()">Analizar</button>
+        <div class="resultado" id="resultado"></div>
+        <script>
+            function analizarCadena() {
+                const texto = document.getElementById("cadena").value;
+                if (texto.length === 0) {
+                    document.getElementById("resultado").innerText = "Por favor, ingresa una cadena.";
+                    return;
+                }
+                let resultado;
+                if (texto === texto.toUpperCase()) {
+                    resultado = "La cadena está formada solo por MAYÚSCULAS.";
+                } else if (texto === texto.toLowerCase()) {
+                    resultado = "La cadena está formada solo por minúsculas.";
+                } else {
+                    resultado = "La cadena tiene una mezcla de MAYÚSCULAS y minúsculas.";
+                }
+                document.getElementById("resultado").innerText = resultado;
+            }
+        </script>
+    </body>
+</html>

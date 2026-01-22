@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simulación de tiradas de dado</title>
+    </head>
+    <body>
+        <h1>Simulación de 6000 tiradas de un dado</h1>
+        <button onclick="simular()">Simular tiradas</button>
+        <ul id="resultado"></ul>
+        <script>
+            function simular() {
+                const tiradas = 6000;
+                const resultados = [0, 0, 0, 0, 0, 0]; // caras 1 a 6
+                // Simulación
+                for (let i = 0; i < tiradas; i++) {
+                    const dado = Math.floor(Math.random() * 6) + 1;
+                    resultados[dado - 1]++;
+                }
+                // Mostrar resultados
+                const lista = document.getElementById("resultado");
+                lista.innerHTML = "";
+                resultados.forEach((cantidad, indice) => {
+                    const li = document.createElement("li");
+                    li.textContent = `Cara ${indice + 1}: ${cantidad} ocurrencias`;
+                    lista.appendChild(li);
+                });
+            }
+        </script>
+    </body>
+</html>

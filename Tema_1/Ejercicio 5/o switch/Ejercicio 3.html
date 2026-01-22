@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora simple</title>
+    </head>
+    <body>
+        <h2>Calculadora simple</h2>
+        <label for="numero1">Número 1:</label><br>
+        <input type="number" id="numero1" required><br>
+        <label for="numero2">Número 2:</label><br>
+        <input type="number" id="numero2" required><br>
+        <label for="operacion">Operación:</label><br>
+        <select id="operacion">
+            <option value="+">Suma (+)</option>
+            <option value="-">Resta (-)</option>
+            <option value="*">Multiplicación (*)</option>
+            <option value="/">División (/)</option>
+        </select><br>
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+        <script>
+            function calcular() {
+                // Obtener valores de los inputs
+                const num1 = parseFloat(document.getElementById('numero1').value);
+                const num2 = parseFloat(document.getElementById('numero2').value);
+                const operacion = document.getElementById('operacion').value;
+                let resultado;
+                // Validar si los números son válidos
+                if (isNaN(num1) || isNaN(num2)) {
+                    document.getElementById('resultado').innerText = "Por favor ingresa ambos números.";
+                    return;
+                }
+                // Realizar operación
+                switch (operacion) {
+                    case '+':
+                        resultado = num1 + num2;
+                        break;
+                    case '-':
+                        resultado = num1 - num2;
+                        break;
+                    case '*':
+                        resultado = num1 * num2;
+                        break;
+                    case '/':
+                        if (num2 === 0) {
+                            document.getElementById('resultado').innerText = "Error: División entre 0.";
+                            return;
+                        }
+                        resultado = num1 / num2;
+                        break;
+                    default:
+                        document.getElementById('resultado').innerText = "Operación no válida.";
+                        return;
+                }
+                // Mostrar resultado
+                document.getElementById('resultado').innerText = `Resultado: ${resultado}`;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Suma de 10 números</title>
+    </head>
+    <body>
+        <h2>Introduce 10 números</h2>
+        <div id="inputs">
+            <input type="number" id="num1" placeholder="Número 1"><br>
+            <input type="number" id="num2" placeholder="Número 2"><br>
+            <input type="number" id="num3" placeholder="Número 3"><br>
+            <input type="number" id="num4" placeholder="Número 4"><br>
+            <input type="number" id="num5" placeholder="Número 5"><br>
+            <input type="number" id="num6" placeholder="Número 6"><br>
+            <input type="number" id="num7" placeholder="Número 7"><br>
+            <input type="number" id="num8" placeholder="Número 8"><br>
+            <input type="number" id="num9" placeholder="Número 9"><br>
+            <input type="number" id="num10" placeholder="Número 10"><br><br>
+        </div>
+        <button onclick="sumarNumeros()">Calcular suma</button>
+        <p id="resultado"></p>
+        <script>
+            function sumarNumeros() {
+                let suma = 0;
+                let resultado = document.getElementById("resultado");
+                // Recorremos los 10 inputs
+                for (let i = 1; i <= 10; i++) {
+                    let valor = parseFloat(document.getElementById("num" + i).value);
+                    if (isNaN(valor)) {
+                        resultado.textContent = "Por favor, introduce todos los números.";
+                        return;
+                    }
+                    suma += valor;
+                }
+                resultado.textContent = "La suma de los 10 números es: " + suma;
+            }
+        </script>
+    </body>
+</html>

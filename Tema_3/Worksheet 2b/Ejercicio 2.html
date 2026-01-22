@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Información de la Clase</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            }
+            h1 {
+            color: #333;
+            }
+            p {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            }
+            input, select, button {
+            margin: 5px 0;
+            padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Listado de alumnos</h1>
+        <div id="alumnos"></div>
+        <h2>Consultar nota de un alumno</h2>
+        <label>Alumno (0-4): <input type="number" id="numAlumno" min="0" max="4"></label><br>
+        <label>Trimestre (1-3, opcional): <input type="number" id="trimestre" min="1" max="3"></label><br>
+        <button id="btnConsultar">Consultar nota</button>
+        <h3>Resultado:</h3>
+        <div id="resultado"></div>
+        <!-- Enlace al script -->
+        <script src="Ejercicio 2.js"></script>
+        <script>
+            // Mostrar todos los alumnos en la web
+            const alumnosDiv = document.getElementById("alumnos");
+            clase.forEach((alumno, index) => {
+            alumnosDiv.innerHTML += `<p>Alumno ${index}: ${alumno}</p>`;
+            });
+            // Funcionalidad del botón de consulta
+            const btn = document.getElementById("btnConsultar");
+            btn.addEventListener("click", () => {
+            const numAlumno = Number(document.getElementById("numAlumno").value);
+            const trimestreInput = document.getElementById("trimestre").value;
+            const trimestre = trimestreInput ? Number(trimestreInput) : undefined;
+            // Validación básica
+            if (numAlumno < 0 || numAlumno >= clase.length) {
+                alert("Alumno no válido");
+                return;
+            }
+            if (trimestre !== undefined && (trimestre < 1 || trimestre > 3)) {
+                alert("Trimestre no válido");
+                return;
+            }
+            const nota = obtenerNota(numAlumno, trimestre);
+            document.getElementById("resultado").innerText = `La nota es: ${nota}`;
+            });
+        </script>
+    </body>
+</html>

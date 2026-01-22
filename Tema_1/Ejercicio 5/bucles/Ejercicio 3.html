@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ingreso de números hasta 0</title>
+    </head>
+    <body>
+        <h2>Ingresa números (0 para salir)</h2>
+        <button onclick="pedirNumeros()">Comenzar</button>
+        <div id="historial"></div>
+        <script>
+            function pedirNumeros() {
+                let numero;
+                let numerosIngresados = []; // Para guardar todos los números ingresados
+                do {
+                    numero = parseFloat(prompt("Introduce un número (0 para salir):"));
+
+                    if (!isNaN(numero) && numero !== 0) {
+                        numerosIngresados.push(numero);
+                    }
+                } while (numero !== 0);
+                document.getElementById("historial").innerHTML = 
+                    numerosIngresados.length > 0 
+                    ? "Números ingresados: " + numerosIngresados.join(", ")
+                    : "No ingresaste ningún número.";
+            }
+        </script>
+    </body>
+</html>

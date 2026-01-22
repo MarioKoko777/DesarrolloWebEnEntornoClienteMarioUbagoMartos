@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simulación de Dados</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 30px;
+            }
+            table {
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #333;
+                padding: 8px 12px;
+                text-align: center;
+            }
+            th {
+                background-color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simulación de Lanzamiento de Dos Dados</h1>
+        <button id="simularBtn">Simular 36.000 lanzamientos</button>
+        <div id="resultados"></div>
+        <script>
+            // Función para generar un número aleatorio entre 1 y 6 (dado)
+            function lanzarDado() {
+                return Math.floor(Math.random() * 6) + 1;
+            }
+            // Función para simular los lanzamientos
+            function simularDados() {
+                const lanzamientos = 36000;
+                // Array para contar las sumas de 2 a 12
+                const conteo = Array(13).fill(0); // índice 0 y 1 no se usan
+                for (let i = 0; i < lanzamientos; i++) {
+                    const dado1 = lanzarDado();
+                    const dado2 = lanzarDado();
+                    const suma = dado1 + dado2;
+                    conteo[suma]++;
+                }
+                // Mostrar los resultados en una tabla HTML
+                let tabla = '<table>';
+                tabla += '<tr><th>Suma</th><th>Veces que apareció</th></tr>';
+                for (let suma = 2; suma <= 12; suma++) {
+                    tabla += `<tr><td>${suma}</td><td>${conteo[suma]}</td></tr>`;
+                }
+                tabla += '</table>';
+                document.getElementById('resultados').innerHTML = tabla;
+            }
+            // Evento del botón
+            document.getElementById('simularBtn').addEventListener('click', simularDados);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagen Aleatoria</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border: 3px solid #333;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Imagen aleatoria</h1>
+    <img id="imagenAleatoria" src="" alt="Imagen aleatoria">
+    <script>
+        // Lista de imágenes desde internet
+        const imagenes = [
+            'https://img.asmedia.epimg.net/resizer/v2/BNQ3SCY4EZAEZE3ECRYAEM5FMQ.jpg?auth=5f3ab9698c8cb3a29e46474d5cf4b7cf3cf2571e9af971a6f58d73ff6c4d35aa&width=1472&height=828&smart=true', // Imagen 1
+            'https://i.pinimg.com/736x/04/17/81/041781f8973fef90f471ce52582d1468.jpg', // Imagen 2
+            'https://canalpokemon.wordpress.com/wp-content/uploads/2008/12/charmander.jpg' // Imagen 3
+        ];
+        // Elegir una imagen aleatoria
+        const indice = Math.floor(Math.random() * imagenes.length);
+        const imgSeleccionada = imagenes[indice];
+        // Mostrarla en el HTML
+        document.getElementById('imagenAleatoria').src = imgSeleccionada;
+    </script>
+
+</body>
+</html>

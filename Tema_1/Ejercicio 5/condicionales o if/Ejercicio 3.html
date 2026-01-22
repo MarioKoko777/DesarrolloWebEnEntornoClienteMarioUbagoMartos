@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Comprobación de Usuario</title>
+    </head>
+    <body>
+        <h2>Comprobación de edad y localidad</h2>
+        <input type="number" id="edad" placeholder="Introduce tu edad">
+        <br><br>
+        <input type="text" id="localidad" placeholder="Introduce tu localidad">
+        <br><br>
+        <button onclick="comprobarUsuario()">Comprobar</button>
+        <p id="resultado"></p>
+        <script>
+            function comprobarUsuario() {
+                let edad = document.getElementById("edad").value;
+                let localidad = document.getElementById("localidad").value.toLowerCase();
+                let resultado = document.getElementById("resultado");
+                if (edad > 25 && localidad === "madrid") {
+                    resultado.textContent = "Enhorabuena";
+                } else {
+                    resultado.textContent = "No cumples las condiciones.";
+                }
+            }
+        </script>
+    </body>
+</html>

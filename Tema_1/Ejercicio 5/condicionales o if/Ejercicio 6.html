@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Carnet emprendedores</title>
+    </head>
+    <body>
+    <script>
+        // Pedir datos al usuario
+        let ciudad = prompt("¿Dónde vives?");
+        let edad = parseInt(prompt("Introduce tu edad:"));
+        // Comprobar condiciones
+        if (ciudad.toLowerCase() === "madrid" && edad >= 18 && edad <= 30) {
+            document.write("<p>Puedes acceder al carnet de empresarios emprendedores.</p>");
+        } else {
+            document.write("<p>No cumples los requisitos para acceder al carnet.</p>");
+        }
+    </script>
+    </body>
+</html>

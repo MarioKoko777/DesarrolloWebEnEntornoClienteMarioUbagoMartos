@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Adivinador de números</title>
+    </head>
+    <body>
+        <script>
+            // Pedir al primer usuario que ingrese el número secreto
+            let numeroSecreto = parseInt(prompt("Usuario 1: Introduce un número secreto:"));
+            let intento;
+            let intentos = 0;
+            // Bucle hasta que el usuario adivine
+            do {
+                intento = parseInt(prompt("Usuario 2: Adivina el número:"));
+                intentos++;
+                if (intento < numeroSecreto) {
+                    alert("El número es mayor que " + intento);
+                } else if (intento > numeroSecreto) {
+                    alert("El número es menor que " + intento);
+                } else {
+                    alert("¡Felicidades! Has adivinado el número en " + intentos + " intentos.");
+                }
+            } while (intento !== numeroSecreto);
+        </script>
+    </body>
+</html>

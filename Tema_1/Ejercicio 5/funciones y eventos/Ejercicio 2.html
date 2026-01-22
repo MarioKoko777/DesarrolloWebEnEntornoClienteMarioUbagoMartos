@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora con función única</title>
+    </head>
+    <body>
+        <h2>Calculadora</h2>
+        <label for="numero1">Número 1:</label>
+        <input type="number" id="numero1"><br>
+        <label for="numero2">Número 2:</label>
+        <input type="number" id="numero2"><br>
+        <!-- Botones para operaciones -->
+        <button onclick="calcular('+')">+</button>
+        <button onclick="calcular('-')">-</button>
+        <button onclick="calcular('*')">*</button>
+        <button onclick="calcular('/')">/</button>
+        <div id="resultado"></div>
+        <script>
+            function calcular(operacion) {
+                // Obtener los números del usuario
+                const num1 = parseFloat(document.getElementById('numero1').value);
+                const num2 = parseFloat(document.getElementById('numero2').value);
+                const resultadoDiv = document.getElementById('resultado');
+                // Validar entradas
+                if (isNaN(num1) || isNaN(num2)) {
+                    resultadoDiv.innerText = "Por favor ingresa ambos números.";
+                    return;
+                }
+                let resultado;
+                // Toda la funcionalidad de operaciones dentro de esta función
+                switch (operacion) {
+                    case '+':
+                        resultado = num1 + num2;
+                        break;
+                    case '-':
+                        resultado = num1 - num2;
+                        break;
+                    case '*':
+                        resultado = num1 * num2;
+                        break;
+                    case '/':
+                        if (num2 === 0) {
+                            resultadoDiv.innerText = "Error: División entre 0.";
+                            return;
+                        }
+                        resultado = num1 / num2;
+                        break;
+                    default:
+                        resultadoDiv.innerText = "Operación no válida.";
+                        return;
+                }
+                // Mostrar resultado
+                resultadoDiv.innerText = `Resultado: ${resultado}`;
+            }
+        </script>
+    </body>
+</html>

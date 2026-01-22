@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora de Hipotenusa Repetitiva</title>
+    </head>
+    <body>
+        <h1>Calculadora de Hipotenusa</h1>
+        <button id="iniciar">Iniciar cálculo</button>
+        <div id="resultado"></div>
+        <script>
+            const botonIniciar = document.getElementById("iniciar");
+            const resultado = document.getElementById("resultado");
+            botonIniciar.addEventListener("click", function() {
+            let continuar = true;
+            while (continuar) {
+                // Pedir los catetos al usuario
+                let cateto1 = parseFloat(prompt("Introduce el valor del cateto 1:"));
+                let cateto2 = parseFloat(prompt("Introduce el valor del cateto 2:"));
+                if (isNaN(cateto1) || isNaN(cateto2) || cateto1 <= 0 || cateto2 <= 0) {
+                alert("Por favor, ingresa valores numéricos positivos.");
+                continue; // Reinicia el bucle
+                }
+                // Calcular hipotenusa
+                const hipotenusa = Math.sqrt(cateto1 ** 2 + cateto2 ** 2);
+                resultado.innerHTML += `<p>Catetos: ${cateto1}, ${cateto2} → Hipotenusa: ${hipotenusa.toFixed(2)}</p>`;
+                // Preguntar si quiere continuar
+                continuar = confirm("¿Deseas calcular otra hipotenusa?");
+            }
+            });
+        </script>
+    </body>
+</html>

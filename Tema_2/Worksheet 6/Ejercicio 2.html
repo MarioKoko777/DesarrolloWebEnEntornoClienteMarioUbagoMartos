@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejemplo de Anclas, Imágenes y Enlaces</title>
+        <style>
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            img { width: 200px; margin: 5px; }
+            a { display: block; margin: 5px 0; }
+            button { margin: 5px; padding: 5px 10px; }
+        </style>
+    </head>
+    <body>
+        <h1>Ejemplo de Anclas, Imágenes y Enlaces</h1>
+        <h2>Anclas de ejemplo</h2>
+        <a href="#seccion1">Ir a Sección 1</a>
+        <a href="#seccion2">Ir a Sección 2</a>
+        <a href="#seccion3">Ir a Sección 3</a>
+        <h2>Secciones</h2>
+        <div id="seccion1"><p>Sección 1</p></div>
+        <div id="seccion2"><p>Sección 2</p></div>
+        <div id="seccion3"><p>Sección 3</p></div>
+        <h2>Imágenes de ejemplo</h2>
+        <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D" id="img1" alt="Imagen 1">
+        <img src="https://e1.pxfuel.com/desktop-wallpaper/609/756/desktop-wallpaper-random-funny-random-stuff.jpg" id="img2" alt="Imagen 2">
+        <img src="https://wallpapers.com/images/hd/3d-hd-random-abstract-blue-and-red-lines-po01ju7yfrhmzgyx.jpg" id="img3" alt="Imagen 3">
+        <h2>Enlaces de ejemplo</h2>
+        <a href="https://www.google.com">Google</a>
+        <a href="https://www.github.com">GitHub</a>
+        <a href="https://www.wikipedia.org">Wikipedia</a>
+        <h2>Acciones con botones</h2>
+        <button onclick="mostrarNumAnclas()">Número de anclas</button>
+        <button onclick="mostrarPrimerAncla()">Texto del primer ancla</button>
+        <button onclick="mostrarNumImagenes()">Número de imágenes</button>
+        <button onclick="mostrarIdPrimeraImagen()">ID de la primera imagen</button>
+        <button onclick="mostrarNumEnlaces()">Número de enlaces</button>
+        <button onclick="cambiarTitulo()">Cambiar título</button>
+        <p id="resultado" style="margin-top:20px; font-weight:bold;"></p>
+        <script>
+            // a) Número de anclas internas (href="#...")
+            function mostrarNumAnclas() {
+            const anclas = document.querySelectorAll('a[href^="#"]');
+            document.getElementById("resultado").innerText = `Número de anclas: ${anclas.length}`;
+            }
+            // b) Texto del primer ancla interna
+            function mostrarPrimerAncla() {
+            const anclas = document.querySelectorAll('a[href^="#"]');
+            if (anclas.length > 0) {
+                document.getElementById("resultado").innerText = `Texto del primer ancla: ${anclas[0].innerHTML}`;
+            } else {
+                document.getElementById("resultado").innerText = "No hay anclas en el documento.";
+            }
+            }
+            // c) Número de imágenes
+            function mostrarNumImagenes() {
+            const num = document.images.length;
+            document.getElementById("resultado").innerText = `Número de imágenes: ${num}`;
+            }
+            // d) ID de la primera imagen
+            function mostrarIdPrimeraImagen() {
+            const primeraImagen = document.images[0];
+            document.getElementById("resultado").innerText = `ID de la primera imagen: ${primeraImagen.id}`;
+            }
+            // e) Número de enlaces
+            function mostrarNumEnlaces() {
+            const num = document.links.length;
+            document.getElementById("resultado").innerText = `Número de enlaces: ${num}`;
+            }
+            // f) Cambiar el título del documento
+            function cambiarTitulo() {
+            document.title = "¡Título cambiado con JS!";
+            document.getElementById("resultado").innerText = "El título del documento ha sido cambiado.";
+            }
+        </script>
+    </body>
+</html>

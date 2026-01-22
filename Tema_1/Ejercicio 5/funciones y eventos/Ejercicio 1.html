@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Imprimir Texto</title>
+    </head>
+    <body>
+        <h2>Imprimir un texto varias veces</h2>
+        <input type="text" id="texto" placeholder="Introduce el texto">
+        <input type="number" id="veces" placeholder="Número de veces" min="1">
+        <button onclick="imprimirTextoUsuario()">Imprimir</button>
+        <div id="resultado"></div>
+        <script>
+            // Función que imprime un texto n veces
+            function imprimirTexto(texto, veces) {
+                let salida = "";
+                for (let i = 0; i < veces; i++) {
+                    salida += texto + "<br>";
+                }
+                return salida;
+            }
+            // Función que se invoca desde el botón en el body
+            function imprimirTextoUsuario() {
+                let texto = document.getElementById("texto").value;
+                let veces = parseInt(document.getElementById("veces").value);
+                let resultado = document.getElementById("resultado");
+                if (texto === "" || isNaN(veces) || veces < 1) {
+                    resultado.innerHTML = "Por favor, introduce un texto y un número válido.";
+                    return;
+                }
+                resultado.innerHTML = imprimirTexto(texto, veces);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora de Sueldo de Vendedores</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+            input, button {
+                margin: 5px 0;
+                padding: 5px;
+            }
+            ul {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculadora de Sueldo de Vendedores</h1>
+        <h2>Dar de alta un vendedor</h2>
+        <input type="text" id="nombreVendedor" placeholder="Nombre del vendedor">
+        <button onclick="agregarVendedor()">Agregar Vendedor</button>
+        <h2>Ingresar ventas de un vendedor</h2>
+        <input type="text" id="nombreVenta" placeholder="Nombre del vendedor">
+        <input type="number" id="montoVenta" placeholder="Monto de ventas">
+        <button onclick="registrarVenta()">Registrar Venta</button>
+        <h2>Sueldos finales</h2>
+        <button onclick="calcularSueldos()">Calcular sueldos</button>
+        <ul id="listaSueldos"></ul>
+        <script>
+            // Array para almacenar vendedores
+            const vendedores = [];
+            // Función para dar de alta un vendedor
+            function agregarVendedor() {
+                const nombre = document.getElementById("nombreVendedor").value.trim();
+                if (nombre === "") {
+                    alert("Ingresa un nombre válido");
+                    return;
+                }
+                // Verificar si ya existe
+                if (vendedores.some(v => v.nombre === nombre)) {
+                    alert("Este vendedor ya existe");
+                    return;
+                }
+                vendedores.push({ nombre: nombre, ventas: 0 });
+                alert(`Vendedor "${nombre}" agregado`);
+                document.getElementById("nombreVendedor").value = "";
+            }
+            // Función para registrar ventas
+            function registrarVenta() {
+                const nombre = document.getElementById("nombreVenta").value.trim();
+                const monto = parseFloat(document.getElementById("montoVenta").value);
+                if (nombre === "" || isNaN(monto) || monto < 0) {
+                    alert("Datos inválidos");
+                    return;
+                }
+                const vendedor = vendedores.find(v => v.nombre === nombre);
+                if (!vendedor) {
+                    alert("Vendedor no encontrado");
+                    return;
+                }
+                vendedor.ventas += monto; // Acumula ventas
+                alert(`Venta de $${monto.toFixed(2)} registrada para ${nombre}`);
+                document.getElementById("nombreVenta").value = "";
+                document.getElementById("montoVenta").value = "";
+            }
+            // Función para calcular sueldos finales
+            function calcularSueldos() {
+                const lista = document.getElementById("listaSueldos");
+                lista.innerHTML = ""; // Limpiar lista
+                vendedores.forEach(v => {
+                    const sueldoFinal = 200 + v.ventas * 0.09;
+                    const li = document.createElement("li");
+                    li.textContent = `${v.nombre}: $${sueldoFinal.toFixed(2)}`;
+                    lista.appendChild(li);
+                });
+            }
+        </script>
+    </body>
+</html>

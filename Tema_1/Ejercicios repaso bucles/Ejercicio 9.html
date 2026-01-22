@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Divisores de un número</title>
+    </head>
+    <body>
+        <h2>Divisores de un número</h2>
+        <div id="resultado"></div>
+        <script>
+            // Pedir el número al usuario
+            let numero = parseInt(prompt("Ingresa un número"));
+            let resultado = document.getElementById("resultado");
+            // Validar que sea un número válido
+            if (!isNaN(numero) && numero > 0) {
+                resultado.innerHTML = "Los divisores de " + numero + " son:<br>";
+            // Encontrar divisores
+                for (let i = 1; i <= numero; i++) {
+                    if (numero % i === 0) {
+                        resultado.innerHTML += i + "<br>";
+                    }
+                }
+            } else {
+                resultado.innerHTML = "Por favor ingresa un número válido mayor que 0.";
+            }
+        </script>
+    </body>
+</html>

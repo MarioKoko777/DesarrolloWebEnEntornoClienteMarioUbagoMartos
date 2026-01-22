@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Ubicación</title>
+    </head>
+    <body>
+        <h1>Tu ubicación actual:</h1>
+        <p id="ubicacion">Obteniendo...</p>
+        <script>
+            // Verifica si el navegador soporta geolocalización
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                // Inserta la información en el body
+                const p = document.getElementById("ubicacion");
+                p.textContent = `Latitud: ${lat}, Longitud: ${lon}`;
+                },
+                function(error) {
+                document.getElementById("ubicacion").textContent = `Error al obtener la ubicación: ${error.message}`;
+                }
+            );
+            } else {
+            document.getElementById("ubicacion").textContent = "Geolocalización no soportada por tu navegador.";
+            }
+        </script>
+    </body>
+</html>

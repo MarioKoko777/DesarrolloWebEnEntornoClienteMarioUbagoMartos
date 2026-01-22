@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Control de ventana</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            }
+            button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            }
+            a {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Abrir ventana controlable</h1>
+        <p>Haz clic en el botón para abrir una ventana nueva donde podrás controlar tamaño, posición y cerrarla.</p>
+        <button id="abrirVentana">Abrir ventana nueva</button>
+        <script>
+            let nuevaVentana;
+            document.getElementById("abrirVentana").addEventListener("click", function() {
+            // Abrir ventana nueva
+            nuevaVentana = window.open("", "ventanaControl", "width=400,height=400");
+            // Crear contenido de forma dinámica usando DOM
+            const doc = nuevaVentana.document;
+            doc.title = "Ventana Controlada";
+            const body = doc.body;
+            body.style.fontFamily = "Arial, sans-serif";
+            body.style.padding = "20px";
+            const h1 = doc.createElement("h1");
+            h1.textContent = "Ventana Controlada";
+            body.appendChild(h1);
+            // Función para crear enlaces de operación
+            function crearEnlace(texto, callback) {
+                const a = doc.createElement("a");
+                a.textContent = texto;
+                a.href = "#";
+                a.addEventListener("click", function(e) {
+                e.preventDefault();
+                callback();
+                });
+                body.appendChild(a);
+            }
+            // Crear enlaces
+            crearEnlace("Cerrar ventana", () => nuevaVentana.close());
+            crearEnlace("Pasar a segundo plano", () => nuevaVentana.blur());
+            crearEnlace("Mover a posición 300,300", () => nuevaVentana.moveTo(300, 300));
+            crearEnlace("Cambiar tamaño a 200x200 píxeles", () => nuevaVentana.resizeTo(200, 200));
+            // Enfocar la nueva ventana
+            nuevaVentana.focus();
+            });
+        </script>
+    </body>
+</html>

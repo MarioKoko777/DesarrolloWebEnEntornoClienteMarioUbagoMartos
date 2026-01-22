@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>El Calculador de Suministro de por Vida</title>
+    </head>
+    <body>
+        <h1>El Calculador de Suministro de por Vida</h1>
+        <div id="resultado"></div>
+        <script>
+            // Edad máxima constante
+            const EDAD_MAXIMA = 90;
+            // Función que calcula el suministro de por vida
+            function calculateSupply(edad, cantidadPorDia) {
+                const añosRestantes = EDAD_MAXIMA - edad;
+                const total = añosRestantes * 365 * cantidadPorDia;
+                const mensaje = `Necesitarás ${total} snacks para que te dure hasta la avanzada edad de ${EDAD_MAXIMA}.`;
+                const p = document.createElement("p");
+                p.textContent = mensaje;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // Función para pedir y validar datos
+            function pedirDatos(numero) {
+                let edad = prompt(`Ingresa tu edad (${numero}):`);
+                let cantidad = prompt(`¿Cuántos snacks consumes por día? (${numero})`);
+                // Validación
+                if (
+                    edad === null || edad === "" ||
+                    cantidad === null || cantidad === "" ||
+                    isNaN(edad) || isNaN(cantidad) ||
+                    edad >= EDAD_MAXIMA || edad < 0 ||
+                    cantidad <= 0
+                ) {
+                    alert("Error: Debes ingresar valores válidos.");
+                    return;
+                }
+                calculateSupply(parseInt(edad), parseInt(cantidad));
+            }
+            // Llamar la función 3 veces
+            pedirDatos(1);
+            pedirDatos(2);
+            pedirDatos(3);
+        </script>
+
+    </body>
+</html>

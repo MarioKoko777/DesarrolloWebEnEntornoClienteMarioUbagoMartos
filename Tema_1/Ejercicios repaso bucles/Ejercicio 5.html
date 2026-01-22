@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Suma de dígitos</title>
+    </head>
+    <body>
+        <h2>Suma de los dígitos de un número</h2>
+        <div id="resultado"></div>
+        <script>
+            // Pedir el número al usuario
+            let numero = prompt("Ingresa un número");
+            let resultado = document.getElementById("resultado");
+            // Validar que solo contenga dígitos (sin letras)
+            let esValido = /^[0-9]+$/.test(numero);
+            if (esValido) {
+                let suma = 0;
+                // Recorrer cada dígito y sumarlo
+                for (let i = 0; i < numero.length; i++) {
+                    suma += parseInt(numero[i]);
+                }
+                resultado.innerHTML = "La suma de los dígitos es: " + suma;
+            } else {
+                resultado.innerHTML = "Error: El valor ingresado contiene letras o caracteres no válidos.";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de enlaces y marcadores</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            a { display: block; margin: 10px 0; }
+        </style>
+    </head>
+    <body>
+        <h1>Ejemplo de enlaces con acciones</h1>
+        <!-- a) Enlace a un marcador -->
+        <p>Sección superior con marcador:</p>
+        <a href="#marcador">Ir al marcador</a>
+        <p style="margin-top:500px;">Aquí está el marcador: 
+        <a id="marcador" href="#" onclick="alert('Este es el marcador con ID: marcador'); return false;">Mostrar nombre del marcador</a>
+        </p>
+        <!-- b) Indicar el nombre del host -->
+        <a href="#" onclick="alert('Nombre del host: ' + location.hostname); return false;">Mostrar nombre del host</a>
+        <!-- c) Devolver URL completa de la página -->
+        <a href="#" onclick="alert('URL completa: ' + location.href); return false;">Mostrar URL completa</a>
+        <!-- d) Preguntar por una dirección y activarla -->
+        <a href="#" onclick="
+        let url = prompt('Introduce la dirección URL a visitar:');
+        if(url) { window.location.href = url; }
+        return false;
+        ">Ir a una URL introducida</a>
+        <!-- e) Indicar el protocolo utilizado -->
+        <a href="#" onclick="alert('Protocolo: ' + location.protocol); return false;">Mostrar protocolo</a>
+        <!-- f) Recargar la página -->
+        <a href="#" onclick="location.reload(); return false;">Recargar página</a>
+    </body>
+</html>

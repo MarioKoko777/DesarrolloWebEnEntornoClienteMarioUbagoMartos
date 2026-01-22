@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reservas Aerolínea</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            }
+            label, select, input, button {
+            margin: 5px 0;
+            display: block;
+            }
+            .asiento {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 3px;
+            border: 1px solid #333;
+            cursor: pointer;
+            }
+            .ocupado {
+            background-color: #f44336;
+            color: white;
+            cursor: not-allowed;
+            }
+            .libre {
+            background-color: #4caf50;
+            color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sistema de Reservas</h1>
+        <label for="nombre">Nombre del pasajero:</label>
+        <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+        <label for="clase">Tipo de asiento:</label>
+        <select id="clase">
+            <option value="First">First (1-5)</option>
+            <option value="Turista">Turista (6-10)</option>
+        </select>
+        <button onclick="asignarAsiento()">Asignar Asiento</button>
+        <h2>Mapa de asientos</h2>
+        <div id="mapaAsientos"></div>
+        <script>
+            // Array para registrar los asientos (null = libre, nombre = ocupado)
+            const asientos = Array(10).fill(null);
+            // Función para mostrar el mapa de asientos
+            function mostrarAsientos() {
+            const contenedor = document.getElementById('mapaAsientos');
+            contenedor.innerHTML = '';
+            asientos.forEach((pasajero, index) => {
+                const div = document.createElement('div');
+                div.textContent = index + 1;
+                div.className = 'asiento ' + (pasajero ? 'ocupado' : 'libre');
+                contenedor.appendChild(div);
+            });
+            }
+            // Función para asignar un asiento
+            function asignarAsiento() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const clase = document.getElementById('clase').value;
+            if (!nombre) {
+                alert('Por favor ingresa tu nombre.');
+                return;
+            }
+            let rango;
+            if (clase === 'First') {
+                rango = [0, 4]; // asientos 1-5
+            } else {
+                rango = [5, 9]; // asientos 6-10
+            }
+            // Buscar un asiento libre
+            let asientoLibre = null;
+            for (let i = rango[0]; i <= rango[1]; i++) {
+                if (!asientos[i]) {
+                asientoLibre = i;
+                break;
+                }
+            }
+            if (asientoLibre === null) {
+                alert('No hay asientos libres en esta clase.');
+                return;
+            }
+            // Asignar asiento
+            asientos[asientoLibre] = nombre;
+            mostrarAsientos();
+            // Abrir tarjeta de embarque en nueva ventana
+            const tarjeta = `
+                <h1>Tarjeta de embarque</h1>
+                <p><strong>Pasajero:</strong> ${nombre}</p>
+                <p><strong>Asiento:</strong> ${asientoLibre + 1}</p>
+                <p><strong>Clase:</strong> ${clase}</p>
+            `;
+            const ventana = window.open('', '_blank', 'width=400,height=300');
+            ventana.document.write(tarjeta);
+            ventana.document.close();
+            }
+            // Mostrar los asientos iniciales
+            mostrarAsientos();
+        </script>
+    </body>
+</html

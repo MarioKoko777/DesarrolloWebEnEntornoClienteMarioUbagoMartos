@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sumatoria de N números</title>
+    </head>
+    <body>
+        <h2>Sumatoria de los primeros N números</h2>
+        <p id="resultado"></p>
+        <script>
+            // Solicitar el número al usuario
+            let n = parseInt(prompt("Ingresa un número"));
+            let suma = 0;
+            // Validar que el número sea válido
+            if (n > 0) {
+                for (let i = 1; i <= n; i++) {
+                    suma += i;
+                }
+                document.getElementById("resultado").textContent =
+                    "La suma de los primeros " + n + " números es: " + suma;
+            } else {
+                document.getElementById("resultado").textContent =
+                    "Por favor ingresa un número válido mayor que 0.";
+            }
+        </script>
+    </body>
+</html>

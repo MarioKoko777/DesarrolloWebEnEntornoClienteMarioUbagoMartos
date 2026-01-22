@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Factorial de los primeros N números</title>
+    </head>
+    <body>
+        <script>
+        // Pedir al usuario que ingrese N
+        let N = parseInt(prompt("Ingresa un número N:"));
+        if (isNaN(N) || N < 1) {
+            console.log("Por favor, ingresa un número entero positivo.");
+        } else {
+            let factorial = 1;
+            for (let i = 1; i <= N; i++) {
+            factorial *= i;
+            console.log("Factorial de " + i + " = " + factorial);
+            }
+        }
+        </script>
+    </body>
+</html>

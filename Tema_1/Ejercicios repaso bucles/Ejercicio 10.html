@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Número primo</title>
+    </head>
+    <body>
+        <h2>Verificar si un número es primo</h2>
+        <div id="resultado"></div>
+        <script>
+            // Pedir número al usuario
+            let numero = parseInt(prompt("Ingrese un número mayor o igual a 2:"));
+            let esPrimo = true;
+            // Validación
+            if (isNaN(numero) || numero < 2) {
+                document.getElementById("resultado").innerHTML =
+                    "El número debe ser mayor o igual a 2.";
+            } else {
+                // Verificar si es primo
+                for (let i = 2; i <= Math.sqrt(numero); i++) {
+                    if (numero % i === 0) {
+                        esPrimo = false;
+                        break;
+                    }
+                }
+                // Mostrar resultado
+                if (esPrimo) {
+                    document.getElementById("resultado").innerHTML =
+                        "El número <b>" + numero + "</b> es primo.";
+                } else {
+                    document.getElementById("resultado").innerHTML =
+                        "El número <b>" + numero + "</b> no es primo.";
+                }
+            }
+        </script>
+    </body>
+</html>

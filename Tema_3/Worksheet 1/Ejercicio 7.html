@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tabla del Factorial</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                margin: 20px auto;
+                width: 300px;
+                text-align: center;
+            }
+            th, td {
+                border: 1px solid #333;
+                padding: 8px;
+            }
+            th {
+                background-color: #f0f0f0;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Factorial del 1 al 10</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Factorial</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-factorial">
+                <!-- Filas generadas con JavaScript -->
+            </tbody>
+        </table>
+        <script>
+            // Función que calcula el factorial de un número
+            function factorial(n) {
+                let resultado = 1;
+                for (let i = 1; i <= n; i++) {
+                    resultado *= i;
+                }
+                return resultado;
+            }
+            // Generar la tabla del 1 al 10
+            const tbody = document.getElementById("tabla-factorial");
+            for (let i = 1; i <= 10; i++) {
+                const fila = document.createElement("tr");
+                const celdaNumero = document.createElement("td");
+                celdaNumero.textContent = i;
+                const celdaFactorial = document.createElement("td");
+                celdaFactorial.textContent = factorial(i);
+                fila.appendChild(celdaNumero);
+                fila.appendChild(celdaFactorial);
+                tbody.appendChild(fila);
+            }
+        </script>
+    </body>
+</html>

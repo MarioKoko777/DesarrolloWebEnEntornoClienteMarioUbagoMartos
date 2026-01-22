@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Máximo de 4 valores</title>
+    </head>
+    <body>
+        <script>
+            // Función que devuelve el máximo de 4 valores
+            function maximo(a, b, c, d) {
+                return Math.max(a, b, c, d);
+            }
+            // Pedir los valores al usuario
+            let n1 = Number(prompt("Introduce el primer número:"));
+            let n2 = Number(prompt("Introduce el segundo número:"));
+            let n3 = Number(prompt("Introduce el tercer número:"));
+            let n4 = Number(prompt("Introduce el cuarto número:"));
+            // Llamar a la función
+            let resultado = maximo(n1, n2, n3, n4);
+            // Mostrar el resultado
+            alert("El número máximo es: " + resultado);
+        </script>
+    </body>
+</html>

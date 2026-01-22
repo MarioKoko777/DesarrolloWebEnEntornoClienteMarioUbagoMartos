@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Información de la Pantalla del Cliente</title>
+    </head>
+    <body>
+        <h1>Información de la Pantalla del Cliente</h1>
+        <table id="infoPantalla">
+            <thead>
+                <tr>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertará la información -->
+            </tbody>
+        </table>
+        <script>
+            function obtenerInfoPantalla() {
+                const pantalla = window.screen;
+                const info = [
+                    {prop: 'Ancho de pantalla', valor: pantalla.width + ' px'},
+                    {prop: 'Alto de pantalla', valor: pantalla.height + ' px'},
+                    {prop: 'Ancho disponible', valor: pantalla.availWidth + ' px'},
+                    {prop: 'Alto disponible', valor: pantalla.availHeight + ' px'},
+                    {prop: 'Profundidad de color', valor: pantalla.colorDepth + ' bits'},
+                    {prop: 'Profundidad de pixel', valor: pantalla.pixelDepth + ' bits'},
+                    {prop: 'Resolución interna de ventana', valor: window.innerWidth + ' x ' + window.innerHeight},
+                    {prop: 'Resolución externa de ventana', valor: window.outerWidth + ' x ' + window.outerHeight},
+                    {prop: 'Zoom aproximado', valor: (window.outerWidth / window.innerWidth * 100).toFixed(0) + ' %'},
+                    {prop: 'Orientación de pantalla', valor: (screen.orientation ? screen.orientation.type : 'No soportado')},
+                    {prop: 'Orientación en ángulo', valor: (screen.orientation ? screen.orientation.angle + '°' : 'No soportado')}
+                ];
+                return info;
+            }
+            // Insertar información en la tabla
+            const tabla = document.getElementById('infoPantalla').getElementsByTagName('tbody')[0];
+            const info = obtenerInfoPantalla();
+            info.forEach(item => {
+                const fila = document.createElement('tr');
+                const celdaProp = document.createElement('td');
+                celdaProp.textContent = item.prop;
+                const celdaValor = document.createElement('td');
+                celdaValor.textContent = item.valor;
+                fila.appendChild(celdaProp);
+                fila.appendChild(celdaValor);
+                tabla.appendChild(fila);
+            });
+        </script>
+    </body>
+</html>

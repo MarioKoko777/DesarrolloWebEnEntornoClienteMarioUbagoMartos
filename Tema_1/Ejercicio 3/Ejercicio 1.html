@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>El Adivino del Futuro</title>
+    </head>
+    <body>
+        <h1>El Adivino del Futuro</h1>
+        <div id="resultado"></div>
+        <script>
+            // Función que predice el futuro
+            function tellFortune(numHijos, pareja, ubicacion, trabajo) {
+                const mensaje = `Serás ${trabajo} en ${ubicacion}, y estarás casado/a con ${pareja} con ${numHijos} hijos.`;
+                const p = document.createElement("p");
+                p.textContent = mensaje;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // Función para pedir y validar datos
+            function pedirFortuna() {
+                let numHijos = prompt("¿Cuántos hijos tendrás?");
+                let pareja = prompt("Nombre de tu pareja:");
+                let ubicacion = prompt("¿Dónde vivirás?");
+                let trabajo = prompt("¿Cuál será tu trabajo?");
+                // Validación de datos
+                if (
+                    numHijos === null || numHijos === "" ||
+                    pareja === null || pareja === "" ||
+                    ubicacion === null || ubicacion === "" ||
+                    trabajo === null || trabajo === ""
+                ) {
+                    alert("Error: Debes completar todos los campos.");
+                    return;
+                }
+                tellFortune(parseInt(numHijos), pareja, ubicacion, trabajo);
+            }
+            // Llamar la función 3 veces
+            pedirFortuna();
+            pedirFortuna();
+            pedirFortuna();
+        </script>
+    </body>
+</html>

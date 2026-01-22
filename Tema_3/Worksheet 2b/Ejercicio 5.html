@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pares e Impares</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            button { margin: 10px 0; }
+            #output { margin-top: 20px; white-space: pre-line; }
+        </style>
+    </head>
+    <body>
+        <h1>Array de Pares e Impares</h1>
+        <button id="paresImparesBtn">Generar y reorganizar array</button>
+        <div id="output"></div>
+        <script>
+            const output = document.getElementById("output");
+            const paresImpares = () => {
+            // Crear array de 100 números aleatorios entre 1 y 1000
+            const numeros = Array.from({ length: 100 }, () => Math.floor(Math.random() * 1000) + 1);
+            // Mostrar array original
+            console.log("Array original:", numeros);
+            // Separar pares e impares
+            const pares = numeros.filter(num => num % 2 === 0);
+            const impares = numeros.filter(num => num % 2 !== 0);
+            // Reorganizar: pares primero, luego impares
+            const reorganizado = [...pares, ...impares];
+            // Mostrar array reorganizado
+            console.log("Array reorganizado (pares primero, luego impares):", reorganizado);
+            // Mostrar en pantalla
+            output.textContent = `Array original:\n${numeros.join(", ")}\n\nArray reorganizado (pares primero, luego impares):\n${reorganizado.join(", ")}`;
+            return reorganizado; // opcional, si quieres usar el array reorganizado
+            };
+            document.getElementById("paresImparesBtn").onclick = paresImpares;
+        </script>
+    </body>
+</html>

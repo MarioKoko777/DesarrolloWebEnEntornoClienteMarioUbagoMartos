@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora geométrica</title>
+    </head>
+    <body>
+        <h1>Calculadora geométrica</h1>
+        <label for="radio">Introduce el radio:</label>
+        <input type="number" id="radio" step="any">
+        <br><br>
+        <button onclick="calcularVolumen()">Calcular volumen de la esfera</button>
+        <button onclick="calcularArea()">Calcular área del círculo</button>
+        <p id="resultado"></p>
+        <script>
+            // Calcula el volumen de una esfera
+            function volumenEsfera(radio) {
+                return (4 / 3) * Math.PI * Math.pow(radio, 3);
+            }
+            // Calcula el área de un círculo
+            function areaCirculo(radio) {
+                return Math.PI * Math.pow(radio, 2);
+            }
+            // Muestra el volumen
+            function calcularVolumen() {
+                const radio = parseFloat(document.getElementById("radio").value);
+                if (radio <= 0 || isNaN(radio)) {
+                    mostrarError();
+                    return;
+                }
+                const volumen = volumenEsfera(radio);
+                document.getElementById("resultado").textContent =
+                    "Volumen de la esfera: " + volumen.toFixed(2);
+            }
+            // Muestra el área
+            function calcularArea() {
+                const radio = parseFloat(document.getElementById("radio").value);
+                if (radio <= 0 || isNaN(radio)) {
+                    mostrarError();
+                    return;
+                }
+                const area = areaCirculo(radio);
+                document.getElementById("resultado").textContent =
+                    "Área del círculo: " + area.toFixed(2);
+            }
+            // Mensaje de error común
+            function mostrarError() {
+                document.getElementById("resultado").textContent =
+                    "Introduce un radio válido mayor que 0.";
+            }
+        </script>
+    </body>
+</html>

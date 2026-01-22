@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Información del Navegador</title>
+    </head>
+    <body>
+        <h1>Información del Navegador y Cliente</h1>
+        <table id="infoNavegador">
+            <thead>
+                <tr>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertará la información -->
+            </tbody>
+        </table>
+        <script>
+            // Función para extraer información del navegador
+            function obtenerInfoNavegador() {
+                const info = [
+                    {prop: 'Nombre del Navegador', valor: navigator.appName},
+                    {prop: 'Versión del Navegador', valor: navigator.appVersion},
+                    {prop: 'User Agent', valor: navigator.userAgent},
+                    {prop: 'Plataforma', valor: navigator.platform},
+                    {prop: 'Lenguaje', valor: navigator.language},
+                    {prop: 'Cookies habilitadas', valor: navigator.cookieEnabled},
+                    {prop: 'Online', valor: navigator.onLine},
+                    {prop: 'URL actual', valor: window.location.href},
+                    {prop: 'Protocolo', valor: window.location.protocol},
+                    {prop: 'Host', valor: window.location.host},
+                    {prop: 'Nombre de dominio', valor: window.location.hostname},
+                    {prop: 'Pathname', valor: window.location.pathname},
+                    {prop: 'Puerto', valor: window.location.port},
+                    {prop: 'Ancho de pantalla', valor: screen.width + ' px'},
+                    {prop: 'Alto de pantalla', valor: screen.height + ' px'},
+                    {prop: 'Resolución interna', valor: window.innerWidth + ' x ' + window.innerHeight},
+                    {prop: 'ColorDepth', valor: screen.colorDepth + ' bits'},
+                    {prop: 'PixelDepth', valor: screen.pixelDepth + ' bits'},
+                    {prop: 'Zona horaria', valor: Intl.DateTimeFormat().resolvedOptions().timeZone}
+                ];
+                return info;
+            }
+            // Insertar la información en la tabla
+            const tabla = document.getElementById('infoNavegador').getElementsByTagName('tbody')[0];
+            const info = obtenerInfoNavegador();
+            info.forEach(item => {
+                const fila = document.createElement('tr');
+                const celdaProp = document.createElement('td');
+                celdaProp.textContent = item.prop;
+                const celdaValor = document.createElement('td');
+                celdaValor.textContent = item.valor;
+                fila.appendChild(celdaProp);
+                fila.appendChild(celdaValor);
+                tabla.appendChild(fila);
+            });
+        </script>
+    </body>
+</html>

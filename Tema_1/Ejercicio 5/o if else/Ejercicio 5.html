@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calcular Nota Final</title>
+    </head>
+    <body>
+        <h2>Calcula si apruebas la asignatura</h2>
+        <p>Introduce tus notas:</p>
+        <input type="number" id="examen1" placeholder="Examen 1" step="0.1" min="0" max="10">
+        <input type="number" id="examen2" placeholder="Examen 2" step="0.1" min="0" max="10">
+        <br><br>
+        <input type="number" id="trabajo1" placeholder="Trabajo 1" step="0.1" min="0" max="10">
+        <input type="number" id="trabajo2" placeholder="Trabajo 2" step="0.1" min="0" max="10">
+        <br><br>
+        <button onclick="calcularNota()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function calcularNota() {
+                // Recoger notas
+                let ex1 = parseFloat(document.getElementById("examen1").value);
+                let ex2 = parseFloat(document.getElementById("examen2").value);
+                let tr1 = parseFloat(document.getElementById("trabajo1").value);
+                let tr2 = parseFloat(document.getElementById("trabajo2").value);
+                let resultado = document.getElementById("resultado");
+
+                // Validar que las notas sean números
+                if (isNaN(ex1) || isNaN(ex2) || isNaN(tr1) || isNaN(tr2)) {
+                    resultado.textContent = "Por favor, introduce todas las notas.";
+                    return;
+                }
+
+                // Comprobar que todas las notas sean al menos 4.5
+                if (ex1 < 4.5 || ex2 < 4.5 || tr1 < 4.5 || tr2 < 4.5) {
+                    resultado.textContent = "No apruebas: alguna nota es menor que 4.5.";
+                    return;
+                }
+
+                // Calcular media ponderada
+                let mediaExamenes = (ex1 + ex2) / 2;
+                let mediaTrabajos = (tr1 + tr2) / 2;
+                let mediaFinal = mediaExamenes * 0.75 + mediaTrabajos * 0.25;
+
+                // Comprobar si aprueba
+                if (mediaFinal > 5) {
+                    resultado.textContent = `¡Felicidades! Has aprobado con una media de ${mediaFinal.toFixed(2)}.`;
+                } else {
+                    resultado.textContent = `No apruebas: la media final es ${mediaFinal.toFixed(2)}.`;
+                }
+            }
+        </script>
+    </body>
+</html>

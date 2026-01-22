@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapa con posición en tiempo real</title>
+        <!-- Leaflet CSS sin integrity ni crossorigin -->
+        <link 
+            rel="stylesheet" 
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        />
+        <style>
+            #mapa {
+            height: 100vh; /* ocupa toda la pantalla */
+            width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mapa"></div>
+        <!-- Leaflet JS sin integrity ni crossorigin -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script>
+            // Inicializamos el mapa centrado en coordenadas arbitrarias
+            const mapa = L.map('mapa').setView([0, 0], 13);
+            // Capa base del mapa (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap',
+            }).addTo(mapa);
+            // Marcador para nuestra posición
+            const marcador = L.marker([0, 0]).addTo(mapa)
+            .bindPopup('Aquí estás')
+            .openPopup();
+            // Función para actualizar la posición en el mapa
+            function actualizarPosicion(pos) {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            marcador.setLatLng([lat, lon]);
+            mapa.setView([lat, lon], 16); // centrar mapa en la nueva posición
+            }
+            function manejarError(err) {
+            alert(`Error al obtener ubicación: ${err.message}`);
+            }
+            // Verifica si el navegador soporta geolocalización
+            if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(
+                actualizarPosicion,
+                manejarError,
+                { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
+            );
+            } else {
+            alert("Tu navegador no soporta geolocalización");
+            }
+        </script>
+    </body>
+</html>

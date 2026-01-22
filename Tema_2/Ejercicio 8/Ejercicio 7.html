@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Distancia automática con Leaflet</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <style>
+            #map { height: 400px; width: 100%; }
+        </style>
+    </head>
+    <body>
+        <h2>Calcula distancia a otra ubicación</h2>
+        <div id="map"></div>
+        <p id="distancia">Obteniendo tu ubicación...</p>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script>
+            // 1. Coordenada fija (ejemplo: Barcelona)
+            const otraUbicacion = [41.3874, 2.1686]; 
+            // 2. Inicializar mapa (temporal, se centrará luego)
+            const map = L.map('map').setView([0, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            // 3. Marcador de ubicación fija
+            L.marker(otraUbicacion).addTo(map).bindPopup("Otra ubicación").openPopup();
+            // 4. Obtener ubicación del usuario
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const miUbicacion = [position.coords.latitude, position.coords.longitude];
+                        // Añadir marcador del usuario
+                        L.marker(miUbicacion).addTo(map).bindPopup("Mi ubicación").openPopup();
+                        // Centrar mapa entre ambos puntos
+                        const bounds = L.latLngBounds([miUbicacion, otraUbicacion]);
+                        map.fitBounds(bounds);
+                        // Calcular distancia usando Leaflet
+                        const distanciaMetros = map.distance(miUbicacion, otraUbicacion);
+                        const distanciaKm = (distanciaMetros / 1000).toFixed(2);
+                        document.getElementById('distancia').textContent =
+                            `Distancia: ${distanciaKm} km`;
+                    },
+                    (error) => {
+                        document.getElementById('distancia').textContent =
+                            "No se pudo obtener tu ubicación.";
+                        console.error(error);
+                    }
+                );
+            } else {
+                document.getElementById('distancia').textContent =
+                    "Tu navegador no soporta geolocalización.";
+            }
+        </script>
+    </body>
+</html>

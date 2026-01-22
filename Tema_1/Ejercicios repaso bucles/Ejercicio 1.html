@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Números del 1 al n</title>
+    </head>
+    <body>
+        <h2>Números del 1 al n</h2>
+        <div id="resultado"></div>
+        <script>
+            // Pedir el número al usuario
+            let n = parseInt(prompt("Ingresa un número"));
+            // Referencia al contenedor donde se mostrarán los números
+            let resultado = document.getElementById("resultado");
+            // Validar que el valor ingresado sea un número válido
+            if (!isNaN(n) && n > 0) {
+                for (let i = 1; i <= n; i++) {
+                    resultado.innerHTML += i + "<br>";
+                }
+            } else {
+                resultado.innerHTML = "Por favor ingresa un número válido mayor que 0.";
+            }
+        </script>
+    </body>
+</html>

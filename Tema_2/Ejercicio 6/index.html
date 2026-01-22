@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Explorador del BOM</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>🌍 Explorador del BOM</h1>
+        <div class="card">
+            <h2>📋 Información del navegador</h2>
+            <ul>
+                <li id="nav"></li>
+                <li id="lang"></li>
+                <li id="plat"></li>
+                <li id="res"></li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>🧭 Navegación</h2>
+            <p id="url"></p>
+        </div>
+        <div class="card">
+            <h2>🔗 Redirección</h2>
+            <button onclick="irAMDN()">Ir a MDN Web Docs</button>
+        </div>
+        <div class="card">
+            <h2>🖥️ Información de la pantalla</h2>
+            <ul>
+                <li id="total"></li>
+                <li id="avail"></li>
+                <li id="orientation"></li>
+                <li id="colorDepth"></li>
+                <li id="pixelDepth"></li>
+            </ul>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

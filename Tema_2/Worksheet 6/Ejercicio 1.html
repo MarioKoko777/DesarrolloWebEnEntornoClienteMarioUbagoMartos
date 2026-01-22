@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de enlaces y documento</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            a { display: block; margin: 10px 0; }
+            #resultados p { margin: 5px 0; }
+        </style>
+    </head>
+    <body>
+        <h1>Ejemplo de Document y Enlaces</h1>
+        <div id="resultados"></div>
+        <!-- a) Fecha de la última actualización -->
+        <a href="#" onclick="document.getElementById('resultados').innerHTML += '<p>Última actualización: ' + document.lastModified + '</p>'; return false;">
+        Mostrar fecha de la última actualización
+        </a>
+        <!-- b) URL desde la cual se ha activado el enlace -->
+        <a href="#" onclick="document.getElementById('resultados').innerHTML += '<p>URL de referencia: ' + document.referrer + '</p>'; return false;">
+        Mostrar URL de referencia
+        </a>
+        <!-- c) Mostrar título del documento -->
+        <a href="#" onclick="document.getElementById('resultados').innerHTML += '<p>Título del documento: ' + document.title + '</p>'; return false;">
+        Mostrar título del documento
+        </a>
+        <!-- d) Mostrar URL completa -->
+        <a href="#" onclick="document.getElementById('resultados').innerHTML += '<p>URL completa: ' + document.URL + '</p>'; return false;">
+        Mostrar URL completa
+        </a>
+        <!-- e) Ejemplos de escritura en documento antes y después de cargar -->
+        <a href="#" onclick="ejemplosDocumentWrite(); return false;">
+        Ejemplos de document.write
+        </a>
+        <script>
+        // e) Ejemplos de uso de document.write
+        function ejemplosDocumentWrite() {
+        // Ejemplo 1: escritura durante la carga
+        let ventana1 = window.open('', '', 'width=400,height=200');
+        ventana1.document.write('<p>Este texto se escribe durante la carga de la ventana.</p>');
+        // Ejemplo 2: escritura después de que la ventana terminó de cargar (sobreescribe contenido)
+        let ventana2 = window.open('', '', 'width=400,height=200');
+        ventana2.document.write('<p>Ventana recién abierta para mostrar ejemplo posterior.</p>');
+        // Forzar que escriba después de un tiempo
+        setTimeout(() => {
+            ventana2.document.write('<p>Este texto sobrescribe todo el contenido previo porque se escribe después de cargar.</p>');
+        }, 2000);
+        }
+        </script>
+    </body>
+</html>

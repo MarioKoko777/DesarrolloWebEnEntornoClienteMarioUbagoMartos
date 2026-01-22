@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Captura de Webcam</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+            video { border: 2px solid #333; border-radius: 10px; width: 640px; height: 480px; }
+        </style>
+    </head>
+    <body>
+        <h1>Captura de video desde la webcam</h1>
+        <video id="video" autoplay playsinline></video>
+        <p id="mensaje"></p>
+        <script>
+        const video = document.getElementById('video');
+        const mensaje = document.getElementById('mensaje');
+        // Comprobar si el navegador soporta getUserMedia
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(stream => {
+                // Asignar el stream de la cámara al elemento video
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                mensaje.textContent = 'No se pudo acceder a la webcam: ' + err.message;
+            });
+        } else {
+            mensaje.textContent = 'Tu navegador no soporta acceso a la webcam.';
+        }
+        </script>
+    </body>
+</html>

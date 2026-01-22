@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Primeros N números primos</title>
+    </head>
+    <body>
+        <h1>Generador de números primos</h1>
+        <p id="resultado"></p>
+        <script>
+        // Pedir al usuario que ingrese N
+        let N = parseInt(prompt("Ingresa la cantidad de números primos que deseas generar:"));
+        let resultado = document.getElementById("resultado");
+        if (isNaN(N) || N < 1) {
+            resultado.innerHTML = "Por favor, ingresa un número entero positivo.";
+        } else {
+            let primos = [];
+            let num = 2; // Comenzamos desde el primer número primo
+            while (primos.length < N) {
+            let esPrimo = true;
+            // Verificar si 'num' es primo
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                esPrimo = false;
+                break;
+                }
+            }
+            if (esPrimo) {
+                primos.push(num);
+            }
+            num++;
+            }
+            // Mostrar los primos en la página
+            resultado.innerHTML = "Los primeros " + N + " números primos son: <br>" + primos.join(", ");
+        }
+        </script>
+    </body>
+</html>

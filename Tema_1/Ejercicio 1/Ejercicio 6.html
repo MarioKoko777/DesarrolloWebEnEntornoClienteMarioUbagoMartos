@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Comparar dos números</title>
+    </head>
+    <body>
+        <p id="resultado"></p>
+        <script>
+            // Pedir números al usuario
+            let num1 = parseFloat(prompt("Introduce el primer número:"));
+            let num2 = parseFloat(prompt("Introduce el segundo número:"));
+            // Comparar los números
+            let mensaje = "";
+            if (num1 > num2) {
+                mensaje = "El número mayor es: " + num1;
+            } else if (num2 > num1) {
+                mensaje = "El número mayor es: " + num2;
+            } else {
+                mensaje = "Ambos números son iguales";
+            }
+            // Mostrar resultado
+            document.getElementById("resultado").innerHTML = mensaje;
+        </script>
+    </body>
+</html>

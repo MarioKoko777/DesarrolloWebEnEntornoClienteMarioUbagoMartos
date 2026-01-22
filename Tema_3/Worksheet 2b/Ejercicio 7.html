@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Operaciones con Arrays</title>
+    </head>
+    <body>
+        <h1>Operaciones con Arrays</h1>
+        <button onclick="inicializarArray()">Establecer 10 elementos a 0</button>
+        <button onclick="sumarUno()">Añadir 1 a cada elemento</button>
+        <button onclick="mostrarArray()">Mostrar array</button>
+        <p id="resultado"></p>
+        <script>
+            // Declaramos el array global
+            let arr = [];
+            // a) Establecer los 10 elementos del array a cero
+            function inicializarArray() {
+                arr = new Array(10).fill(0);
+                document.getElementById("resultado").textContent = "Array inicializado a 0";
+            }
+            // b) Añadir 1 a cada elemento del array
+            function sumarUno() {
+                if (arr.length === 0) {
+                    alert("Primero inicializa el array a cero.");
+                    return;
+                }
+                arr = arr.map(num => num + 1);
+                document.getElementById("resultado").textContent = "Se sumó 1 a cada elemento.";
+            }
+            // c) Mostrar los valores del array separados por espacios
+            function mostrarArray() {
+                if (arr.length === 0) {
+                    alert("Primero inicializa el array a cero.");
+                    return;
+                }
+                document.getElementById("resultado").textContent = arr.join(" ");
+            }
+        </script>
+    </body>
+</html>

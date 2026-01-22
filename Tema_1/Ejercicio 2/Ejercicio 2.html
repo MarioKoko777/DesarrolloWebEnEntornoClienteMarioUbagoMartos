@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora de Suministro de Por Vida</title>
+    </head>
+    <body>
+        <h1>Calculadora de Suministro de Por Vida</h1>
+        <!-- Inputs para los datos -->
+        <label for="edadActual">Edad actual:</label>
+        <input type="number" id="edadActual" placeholder="Ej: 25"><br><br>
+        <label for="edadMaxima">Edad máxima deseada:</label>
+        <input type="number" id="edadMaxima" placeholder="Ej: 80"><br><br>
+        <label for="cantidadDiaria">Cantidad por día:</label>
+        <input type="number" id="cantidadDiaria" placeholder="Ej: 2"><br><br>
+        <button onclick="calcularSuministro()">Calcular Suministro</button>
+        <!-- Aquí se mostrará el resultado -->
+        <p id="resultado"></p>
+        <script>
+            function calcularSuministro() {
+                // 1. Guardar la edad actual
+                const edadActual = parseInt(document.getElementById('edadActual').value);
+                // 2. Guardar la edad máxima
+                const edadMaxima = parseInt(document.getElementById('edadMaxima').value);
+                // 3. Guardar la cantidad diaria
+                const cantidadDiaria = parseFloat(document.getElementById('cantidadDiaria').value);
+                // Validaciones simples
+                if (isNaN(edadActual) || isNaN(edadMaxima) || isNaN(cantidadDiaria) ||
+                    edadActual >= edadMaxima || cantidadDiaria <= 0) {
+                    document.getElementById('resultado').textContent = "Por favor ingresa valores válidos.";
+                    return;
+                }
+                // 4. Calcular cuántos consumirías en total
+                const diasRestantes = (edadMaxima - edadActual) * 365; // Aproximando 365 días por año
+                const totalSuministro = diasRestantes * cantidadDiaria;
+                // 5. Mostrar en pantalla
+                document.getElementById('resultado').textContent =
+                    `Necesitarás ${totalSuministro} para que te alcance hasta la edad de ${edadMaxima}.`;
+            }
+        </script>
+    </body>
+</html>

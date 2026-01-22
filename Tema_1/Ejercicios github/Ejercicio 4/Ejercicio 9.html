@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla con filas y columnas</title>
+    </head>
+    <body>
+        <script>
+            // Pedir al usuario los valores
+            let columnas = Number(prompt("Ingrese el número de columnas"));
+            let filas = Number(prompt("Ingrese el número de filas"));
+            let altura = Number(prompt("Ingrese la altura de las celdas en pixels"));
+            let ancho = Number(prompt("Ingrese el ancho de las celdas en pixels"));
+            // Sentencia antes del bucle externo: abrir la tabla
+            document.write('<table border="0" cellspacing="2" bgcolor="black" width="200">');
+            // Bucle externo para las filas
+            for (let j = 1; j <= filas; j++) {
+                document.write('<tr bgcolor="white" height="' + altura + '">'); // fila
+                // Bucle interno para las columnas
+                for (let i = 1; i <= columnas; i++) {
+                    document.write('<td width="' + ancho + '">&nbsp;</td>'); // celda
+                }
+                document.write('</tr>'); // cerrar fila
+            }
+            // Sentencia después de los bucles: cerrar la tabla
+            document.write('</table>');
+        </script>
+    </body>
+</html>

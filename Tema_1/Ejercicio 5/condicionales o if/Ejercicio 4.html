@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Descuento</title>
+    </head>
+    <body>
+    <script>
+        // Pedir número al usuario
+        let numero = parseFloat(prompt("Introduce un número:"));
+        // Comprobar si es mayor que 100
+        if (numero > 100) {
+            let descuento = numero * 0.15;
+            let nuevoNumero = numero - descuento;
+            document.write("<p>El número con descuento es: " + nuevoNumero + "</p>");
+        } else {
+            document.write("<p>El número no supera 100, no se aplica descuento.</p>");
+        }
+    </script>
+    </body>
+</html>

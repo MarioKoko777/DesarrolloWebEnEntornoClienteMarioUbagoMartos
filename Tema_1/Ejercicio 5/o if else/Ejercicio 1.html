@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nombre y Apellidos</title>
+    </head>
+    <body>
+        <h2>Introduce tus datos</h2>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <br><br>
+        <input type="text" id="apellidos" placeholder="Apellidos">
+        <br><br>
+        <button onclick="comprobarNombre()">Enviar</button>
+        <p id="resultado"></p>
+        <script>
+            function comprobarNombre() {
+                let nombre = document.getElementById("nombre").value;
+                let apellidos = document.getElementById("apellidos").value;
+                let resultado = document.getElementById("resultado");
+                if (nombre === "Ricardo") {
+                    resultado.textContent = "Tus apellidos son: " + apellidos;
+                } else {
+                    document.write("Tus apellidos son: " + apellidos);
+                }
+            }
+        </script>
+    </body>
+</html>

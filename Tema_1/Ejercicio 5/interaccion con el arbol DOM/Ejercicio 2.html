@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Modificar Texto de una Capa</title>
+    </head>
+    <body>
+        <h2>Modificar texto de una capa</h2>
+        <div id="miCapa" style="border: 1px solid black; padding: 10px; width: 300px;">
+            Este es el texto original de la capa.
+        </div>
+        <br>
+        <button onclick="cambiarTexto()">Cambiar Texto</button>
+        <script>
+            function cambiarTexto() {
+                let capa = document.getElementById("miCapa");
+                capa.textContent = "¡El texto ha sido modificado!";
+            }
+        </script>
+    </body>
+</html>

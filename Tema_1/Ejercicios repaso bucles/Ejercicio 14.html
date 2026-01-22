@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Patrones con document.write</title>
+    </head>
+    <body>
+        <script>
+        /* ------------------ CUADRADO LLENO ------------------ */
+        document.write("<h3>Cuadrado lleno:</h3>");
+        let n = 5; // Tamaño del cuadrado
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        /* ------------------ CUADRADO HUECO ------------------ */
+        document.write("<h3>Cuadrado hueco:</h3>");
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                if (i === 0 || i === n-1 || j === 0 || j === n-1) {
+                    document.write("*");
+                } else {
+                    document.write("&nbsp;&nbsp;"); // espacio
+                }
+            }
+            document.write("<br>");
+        }
+        /* ------------------ TABLERO DE AJEDREZ ------------------ */
+        document.write("<h3>Tablero de Ajedrez:</h3>");
+        let filas = 8;
+        let columnas = 8;
+        for (let i = 0; i < filas; i++) {
+            for (let j = 0; j < columnas; j++) {
+                if ((i + j) % 2 === 0) {
+                    document.write("*");
+                } else {
+                    document.write("&nbsp;");
+                }
+            }
+            document.write("<br>");
+        }
+        /* ------------------ PIRÁMIDE IZQUIERDA ------------------ */
+        document.write("<h3>Pirámide izquierda:</h3>");
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        /* ------------------ PIRÁMIDE CENTRADA ------------------ */
+        document.write("<h3>Pirámide centrada:</h3>");
+        for (let i = 1; i <= n; i++) {
+            // Espacios
+            for (let j = 1; j <= n - i; j++) {
+                document.write("&nbsp;");
+            }
+            // Asteriscos
+            for (let k = 1; k <= 2*i - 1; k++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        /* ------------------ PIRÁMIDE INVERTIDA ------------------ */
+        document.write("<h3>Pirámide invertida:</h3>");
+        for (let i = n; i >= 1; i--) {
+            for (let j = 1; j <= 2*i - 1; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        /* ------------------ DIAMANTE ------------------ */
+        document.write("<h3>Diamante:</h3>");
+        // Parte superior (piramide centrada)
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= n - i; j++) document.write("&nbsp;");
+            for (let k = 1; k <= 2*i - 1; k++) document.write("*");
+            document.write("<br>");
+        }
+        // Parte inferior (piramide invertida)
+        for (let i = n-1; i >= 1; i--) {
+            for (let j = 1; j <= n - i; j++) document.write("&nbsp;");
+            for (let k = 1; k <= 2*i - 1; k++) document.write("*");
+            document.write("<br>");
+        }
+        </script>
+    </body>
+</html>

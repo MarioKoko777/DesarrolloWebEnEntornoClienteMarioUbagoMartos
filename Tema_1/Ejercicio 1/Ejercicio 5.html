@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 4</title>
+    </head>
+    <body>
+        <p id="resultado"></p>
+        <script>
+            // Pedir los números al usuario
+            let variable1 = parseFloat(prompt("Introduce el primer número:"));
+            let variable2 = parseFloat(prompt("Introduce el segundo número:"));
+            // Operaciones matemáticas
+            let suma = variable1 + variable2;
+            let resta = variable1 - variable2;
+            let multiplicacion = variable1 * variable2;
+            let division = variable1 / variable2;
+            // Mostrar resultados por pantalla
+            document.getElementById("resultado").innerHTML =
+                "El valor de la primera variable es: " + variable1 + "<br>" +
+                "El valor de la segunda variable es: " + variable2 + "<br><br>" +
+                "La suma es: " + suma + "<br>" +
+                "La resta es: " + resta + "<br>" +
+                "La multiplicación es: " + multiplicacion + "<br>" +
+                "La división es: " + division;
+        </script>
+    </body>
+</html>

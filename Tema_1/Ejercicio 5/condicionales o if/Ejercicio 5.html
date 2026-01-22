@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bienvenida / Bienvenido</title>
+    </head>
+    <body>
+        <h2>Introduce tu nombre</h2>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <button onclick="saludar()">Aceptar</button>
+        <p id="resultado"></p>
+        <script>
+            function saludar() {
+                let nombre = document.getElementById("nombre").value.toLowerCase();
+                let resultado = document.getElementById("resultado");
+                if (nombre === "pablo" || nombre === "eduardo") {
+                    resultado.textContent = "Bienvenido";
+                } else if (nombre === "ana" || nombre === "clara") {
+                    resultado.textContent = "Bienvenida";
+                } else {
+                    resultado.textContent = "Nombre no reconocido.";
+                }
+            }
+        </script>
+    </body>
+</html>

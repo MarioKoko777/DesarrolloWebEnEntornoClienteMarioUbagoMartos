@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tablero de ajedrez</title>
+    </head>
+    <body>
+        <script>
+            // Pedir al usuario el tamaño de las celdas
+            let tamaño = Number(prompt("Ingrese el ancho (y alto) de las celdas en pixels"));
+            // Abrir la tabla
+            document.write('<table border="1" cellspacing="0">');
+            // Bucle externo: filas
+            for (let fila = 1; fila <= 8; fila++) {
+                document.write('<tr>');
+                // Bucle interno: columnas
+                for (let columna = 1; columna <= 8; columna++) {
+                    // Determinar color: alternado usando fila + columna
+                    let color = (fila + columna) % 2 === 0 ? "white" : "black";
+                    document.write('<td width="' + tamaño + '" height="' + tamaño + '" bgcolor="' + color + '"></td>');
+                }
+                document.write('</tr>'); // cerrar fila
+            }
+            // Cerrar tabla
+            document.write('</table>');
+        </script>
+    </body>
+</html>

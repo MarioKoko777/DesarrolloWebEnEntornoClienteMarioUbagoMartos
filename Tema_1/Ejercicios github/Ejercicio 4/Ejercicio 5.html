@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tabla con columnas alternadas (while)</title>
+    </head>
+    <body>
+        <script>
+            // Pedir al usuario los valores
+            let columnas = Number(prompt("Ingrese el número de columnas"));
+            let altura = Number(prompt("Ingrese la altura de las celdas en pixels"));
+            let ancho = Number(prompt("Ingrese el ancho de las celdas en pixels"));
+            // Escribir el inicio de la tabla y la fila
+            document.write('<table border="0" cellspacing="2" width="200">');
+            document.write('<tr height="' + altura + '">');
+            // Bucle while para crear las celdas con fondo alternado
+            let i = 1; // contador inicial
+            while (i <= columnas) {
+                if (i % 2 === 1) { // columna impar
+                    document.write('<td width="' + ancho + '" bgcolor="black">&nbsp;</td>');
+                } else {           // columna par
+                    document.write('<td width="' + ancho + '" bgcolor="white">&nbsp;</td>');
+                }
+                i++; // incrementar contador
+            }
+            // Cerrar la fila y la tabla
+            document.write('</tr>');
+            document.write('</table>');
+        </script>
+    </body>
+</html>

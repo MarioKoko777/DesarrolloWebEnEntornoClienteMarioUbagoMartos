@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>El Geometrizador</title>
+    </head>
+    <body>
+        <h1>El Geometrizador</h1>
+        <div id="resultado"></div>
+        <script>
+            // Constante PI
+            const PI = Math.PI;
+            // Función que calcula la circunferencia
+            function calcCircumference(radio) {
+                const circunferencia = 2 * PI * radio;
+                const p = document.createElement("p");
+                p.textContent = `La circunferencia es ${circunferencia.toFixed(2)}.`;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // Función que calcula el área
+            function calcArea(radio) {
+                const area = PI * radio * radio;
+                const p = document.createElement("p");
+                p.textContent = `El área es ${area.toFixed(2)}.`;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // Función para pedir y validar el radio
+            function pedirRadio(numero) {
+                let radio = prompt(`Ingresa el radio del círculo (${numero}):`);
+                // Validación
+                if (
+                    radio === null ||
+                    radio === "" ||
+                    isNaN(radio) ||
+                    radio <= 0
+                ) {
+                    alert("Error: Debes ingresar un radio válido.");
+                    return;
+                }
+                radio = parseFloat(radio);
+                calcCircumference(radio);
+                calcArea(radio);
+            }
+            // Llamar la función 3 veces
+            pedirRadio(1);
+            pedirRadio(2);
+            pedirRadio(3);
+        </script>
+    </body>
+</html>

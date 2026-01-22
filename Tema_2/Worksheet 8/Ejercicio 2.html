@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Captura de Audio</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+            audio { margin-top: 20px; width: 400px; }
+        </style>
+        </head>
+    <body>
+        <h1>Captura de audio desde el micrófono</h1>
+        <audio id="audio" autoplay controls></audio>
+        <p id="mensaje"></p>
+        <script>
+        const audio = document.getElementById('audio');
+        const mensaje = document.getElementById('mensaje');
+        // Comprobar si el navegador soporta getUserMedia
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+            .then(stream => {
+                // Asignar el stream de audio al elemento audio
+                audio.srcObject = stream;
+            })
+            .catch(err => {
+                mensaje.textContent = 'No se pudo acceder al micrófono: ' + err.message;
+            });
+        } else {
+            mensaje.textContent = 'Tu navegador no soporta acceso al micrófono.';
+        }
+        </script>
+    </body>
+</html>

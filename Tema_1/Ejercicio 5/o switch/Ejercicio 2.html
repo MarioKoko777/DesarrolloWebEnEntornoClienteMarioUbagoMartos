@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Verificación de número</title>
+    </head>
+    <body>
+        <script>
+            // Pedir un número al usuario
+            let numero = parseInt(prompt("Introduce un número:"));
+            // Comprobar si es par
+            if (numero % 2 === 0) {
+                document.write("<p>El número es par.</p>");
+            } else {
+                document.write("<p>El número es impar.</p>");
+            }
+            // Comprobar si es múltiplo de 3
+            if (numero % 3 === 0) {
+                document.write("<p>El número es múltiplo de 3.</p>");
+            } else {
+                document.write("<p>El número no es múltiplo de 3.</p>");
+            }
+            // Comprobar si es múltiplo de 5
+            if (numero % 5 === 0) {
+                document.write("<p>El número es múltiplo de 5.</p>");
+            } else {
+                document.write("<p>El número no es múltiplo de 5.</p>");
+            }
+        </script>
+    </body>
+</html>

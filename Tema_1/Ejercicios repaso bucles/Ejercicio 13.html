@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Primeros N números perfectos</title>
+    </head>
+    <body>
+        <h2>Primeros N números perfectos</h2>
+        <div id="resultado"></div>
+        <script>
+            // Pedir al usuario cuántos números perfectos quiere
+            let n = parseInt(prompt("Ingresa cuántos números perfectos quieres generar:"));
+            let resultado = document.getElementById("resultado");
+            if (!isNaN(n) && n > 0) {
+                let perfectos = [];
+                let numero = 2; // empezamos desde 2, ya que 1 no es perfecto
+                // Función para calcular la suma de divisores de un número (excluyendo el mismo)
+                function sumaDivisores(num) {
+                    let suma = 1; // 1 siempre es divisor
+                    for (let i = 2; i <= num / 2; i++) {
+                        if (num % i === 0) suma += i;
+                    }
+                    return suma;
+                }
+                // Buscar números perfectos hasta tener N
+                while (perfectos.length < n) {
+                    if (sumaDivisores(numero) === numero) {
+                        perfectos.push(numero);
+                    }
+                    numero++;
+                }
+                // Mostrar los resultados
+                resultado.innerHTML = "Los primeros " + n + " números perfectos son:<br>" + perfectos.join("<br>");
+            } else {
+                resultado.innerHTML = "Por favor ingresa un número válido mayor que 0.";
+            }
+        </script>
+    </body>
+</html>

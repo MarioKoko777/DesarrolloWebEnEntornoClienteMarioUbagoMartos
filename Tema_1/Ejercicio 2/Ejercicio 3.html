@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>El Geometrizador</title>
+    </head>
+    <body>
+        <h1>El Geometrizador</h1>
+        <!-- Input para el radio -->
+        <label for="radio">Ingresa el radio del círculo:</label>
+        <input type="number" id="radio" placeholder="Ej: 5"><br><br>
+        <button onclick="calcularCirculo()">Calcular</button>
+        <!-- Aquí se mostrarán los resultados -->
+        <p id="resultadoCircunferencia"></p>
+        <p id="resultadoArea"></p>
+        <script>
+            function calcularCirculo() {
+                // 1. Guardar el radio
+                const radio = parseFloat(document.getElementById('radio').value);
+                // Validación
+                if (isNaN(radio) || radio <= 0) {
+                    document.getElementById('resultadoCircunferencia').textContent = "Por favor ingresa un radio válido.";
+                    document.getElementById('resultadoArea').textContent = "";
+                    return;
+                }
+                // 2. Calcular la circunferencia
+                const circunferencia = 2 * Math.PI * radio;
+                // 3. Calcular el área
+                const area = Math.PI * Math.pow(radio, 2);
+                // 4. Mostrar en pantalla
+                document.getElementById('resultadoCircunferencia').textContent = `La circunferencia es ${circunferencia.toFixed(2)}`;
+                document.getElementById('resultadoArea').textContent = `El área es ${area.toFixed(2)}`;
+            }
+        </script>
+    </body>
+</html>

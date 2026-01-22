@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>WorkSheet 4.1 - Ejercicio 3</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div id="content"></div>
+        <div id="direccion"></div>
+        <div id="mapa"></div>
+        <noscript>
+            <p>No soporta JavaScript</p>
+        </noscript>
+        <!-- Callback para Google Maps -->
+        <script>
+            function initMap() {
+                ejercicio3(); // Llama a tu función principal del JS
+            }
+        </script>
+        <!-- Google Maps API con callback -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQs4dVPgPaENqfM302Mt_za7nfNJuFvGs&callback=initMap" async defer></script>
+        <!-- Tu JS -->
+        <script src="ejercicio3.js"></script>
+    </body>
+</html>

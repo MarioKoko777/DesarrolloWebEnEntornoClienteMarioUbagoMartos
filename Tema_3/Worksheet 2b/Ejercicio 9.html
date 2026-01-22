@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simulación de Dos Dados - Combinaciones</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 30px;
+            }
+            table {
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #333;
+                padding: 8px 12px;
+                text-align: center;
+            }
+            th {
+                background-color: #eee;
+            }
+            h2 {
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simulación de Lanzamiento de Dos Dados</h1>
+        <button id="simularBtn">Simular 36.000 lanzamientos</button>
+        <div id="resultados"></div>
+        <script>
+            // Función para generar un número aleatorio entre 1 y 6
+            function lanzarDado() {
+                return Math.floor(Math.random() * 6) + 1;
+            }
+            // Función para simular los lanzamientos
+            function simularDados() {
+                const lanzamientos = 36000;
+                // Array unidimensional para las sumas (índices 2 a 12)
+                const conteoSuma = Array(13).fill(0);
+                // Array bidimensional para las combinaciones
+                // filas: dado1 (1-6), columnas: dado2 (1-6)
+                const combinaciones = Array.from({length: 6}, () => Array(6).fill(0));
+                for (let i = 0; i < lanzamientos; i++) {
+                    const dado1 = lanzarDado();
+                    const dado2 = lanzarDado();
+                    // Contar suma
+                    const suma = dado1 + dado2;
+                    conteoSuma[suma]++;
+                    // Contar combinación
+                    combinaciones[dado1 - 1][dado2 - 1]++;
+                }
+                // === Tabla de Sumas ===
+                let tablaSuma = '<h2>Frecuencia de las Sumas</h2>';
+                tablaSuma += '<table>';
+                tablaSuma += '<tr><th>Suma</th><th>Veces que apareció</th></tr>';
+                for (let suma = 2; suma <= 12; suma++) {
+                    tablaSuma += `<tr><td>${suma}</td><td>${conteoSuma[suma]}</td></tr>`;
+                }
+                tablaSuma += '</table>';
+                // === Tabla de Combinaciones ===
+                let tablaComb = '<h2>Frecuencia de Combinaciones de Dados</h2>';
+                tablaComb += '<table>';
+                // Cabecera columnas (Dado2)
+                tablaComb += '<tr><th>Dado1 \\ Dado2</th>';
+                for (let d2 = 1; d2 <= 6; d2++) {
+                    tablaComb += `<th>${d2}</th>`;
+                }
+                tablaComb += '</tr>';
+                for (let d1 = 0; d1 < 6; d1++) {
+                    tablaComb += `<tr><th>${d1 + 1}</th>`;
+                    for (let d2 = 0; d2 < 6; d2++) {
+                        tablaComb += `<td>${combinaciones[d1][d2]}</td>`;
+                    }
+                    tablaComb += '</tr>';
+                }
+                tablaComb += '</table>';
+                // Mostrar ambas tablas
+                document.getElementById('resultados').innerHTML = tablaSuma + tablaComb;
+            }
+            // Evento del botón
+            document.getElementById('simularBtn').addEventListener('click', simularDados);
+        </script>
+    </body>
+</html>

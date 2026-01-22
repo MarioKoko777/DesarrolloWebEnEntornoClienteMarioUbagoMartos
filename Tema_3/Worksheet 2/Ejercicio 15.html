@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contar elementos en un array</title>
+        </head>
+    <body>
+        <script>
+            const array = ['manzana', 'banana', 'manzana', 'pera', 'banana', 'manzana'];
+            const elementoABuscar = 'manzana';
+            const contador = array.reduce((acc, item) => {
+            if (item === elementoABuscar) {
+                acc += 1;
+            }
+            return acc;
+            }, 0);
+            console.log(`El elemento "${elementoABuscar}" aparece ${contador} veces.`);
+        </script>
+    </body>
+</html>

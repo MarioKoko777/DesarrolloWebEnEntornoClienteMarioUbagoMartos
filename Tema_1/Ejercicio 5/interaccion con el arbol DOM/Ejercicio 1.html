@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reducir imagen</title>
+    </head>
+    <body>
+        <h2>Haz clic en el botón para reducir la imagen</h2>
+        <img id="miImagen" src="https://img.freepik.com/foto-gratis/gatito-pared-monocromatica-detras-ella_23-2148955134.jpg?semt=ais_hybrid&w=740&q=80" alt="Imagen" width="200" height="200">
+        <br><br>
+        <button onclick="reducirImagen()">Reducir tamaño</button>
+        <script>
+            function reducirImagen() {
+                let img = document.getElementById("miImagen");
+                // Reducir ancho y alto en 5 píxeles
+                let nuevoAncho = img.width - 5;
+                let nuevoAlto = img.height - 5;
+
+                // Evitar que la imagen desaparezca (mínimo 10 píxeles)
+                if (nuevoAncho >= 10 && nuevoAlto >= 10) {
+                    img.width = nuevoAncho;
+                    img.height = nuevoAlto;
+                } else {
+                    alert("La imagen no puede reducirse más.");
+                }
+            }
+        </script>
+    </body>
+</html>

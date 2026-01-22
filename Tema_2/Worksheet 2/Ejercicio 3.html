@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora de Hipotenusa</title>
+    </head>
+    <body>
+        <h1>Calculadora de Hipotenusa</h1>
+        <form id="formulario">
+            <label for="cateto1">Cateto 1:</label>
+            <input type="number" id="cateto1" required><br><br>
+            <label for="cateto2">Cateto 2:</label>
+            <input type="number" id="cateto2" required><br><br>
+            <button type="submit">Calcular Hipotenusa</button>
+        </form>
+        <h2 id="resultado"></h2>
+        <script>
+            const formulario = document.getElementById("formulario");
+            const resultado = document.getElementById("resultado");
+            formulario.addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que el formulario se recargue
+            const cateto1 = parseFloat(document.getElementById("cateto1").value);
+            const cateto2 = parseFloat(document.getElementById("cateto2").value);
+            if (cateto1 > 0 && cateto2 > 0) {
+                // Calcula la hipotenusa usando Pitágoras
+                const hipotenusa = Math.sqrt(cateto1 ** 2 + cateto2 ** 2);
+                resultado.textContent = `La hipotenusa es: ${hipotenusa.toFixed(2)}`;
+            } else {
+                resultado.textContent = "Por favor, ingresa valores positivos.";
+            }
+            });
+        </script>
+    </body>
+</html>

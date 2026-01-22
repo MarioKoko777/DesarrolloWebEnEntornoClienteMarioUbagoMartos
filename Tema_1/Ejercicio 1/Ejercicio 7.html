@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calificación</title>
+    </head>
+    <body>
+        <p id="resultado"></p>
+        <script>
+            // Solicitar nota al usuario
+            let nota = parseFloat(prompt("Introduce tu nota (0 a 10):"));
+            // Variable para el mensaje
+            let mensaje = "";
+            // Validar que sea un número y esté en el rango 0-10
+            if (isNaN(nota) || nota < 0 || nota > 10) {
+                mensaje = "Por favor, introduce una nota válida entre 0 y 10.";
+            } else {
+                // Evaluar la nota
+                if (nota < 5) {
+                    mensaje = "Suspenso";
+                } else if (nota < 7) {
+                    mensaje = "Aprobado";
+                } else if (nota < 9) {
+                    mensaje = "Notable";
+                } else {
+                    mensaje = "Sobresaliente";
+                }
+            }
+            // Mostrar resultado
+            document.getElementById("resultado").innerHTML = mensaje;
+        </script>
+    </body>
+</html>

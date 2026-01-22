@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hora en la barra de estado simulada</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                padding-bottom: 30px; /* espacio para la barra simulada */
+            }
+            #barraEstado {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                background-color: #333;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hora actual en la barra de estado</h1>
+        <p>Observa la "barra de estado" simulada en la parte inferior de la página.</p>
+        <!-- Barra de estado simulada -->
+        <div id="barraEstado"></div>
+        <script>
+            function actualizarHora() {
+                const ahora = new Date();
+                const horas = String(ahora.getHours()).padStart(2, "0");
+                const minutos = String(ahora.getMinutes()).padStart(2, "0");
+                const segundos = String(ahora.getSeconds()).padStart(2, "0");
+                const horaFormateada = `${horas}:${minutos}:${segundos}`;
+                // Mostrar la hora en la barra simulada
+                document.getElementById("barraEstado").textContent = horaFormateada;
+            }
+            // Actualizar cada segundo
+            setInterval(actualizarHora, 1000);
+            // Inicializar al cargar la página
+            actualizarHora();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Números hasta 100</title>
+    </head>
+    <body>
+        <h2>Mostrar números hasta 100</h2>
+        <input type="number" id="numero" placeholder="Introduce un número">
+        <button onclick="mostrarNumeros()">Mostrar</button>
+        <div id="resultado"></div>
+        <script>
+            function mostrarNumeros() {
+                let num = parseInt(document.getElementById("numero").value);
+                let resultado = document.getElementById("resultado");
+                // Validar que sea un número
+                if (isNaN(num)) {
+                    resultado.textContent = "Por favor, introduce un número válido.";
+                    return;
+                }
+                // Generar números desde num hasta 100
+                let numeros = "";
+                for (let i = num; i <= 100; i++) {
+                    numeros += i + " ";
+                }
+                resultado.textContent = numeros;
+            }
+        </script>
+    </body>
+</html>

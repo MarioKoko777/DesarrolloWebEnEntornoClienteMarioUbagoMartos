@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trazar ruta con Leaflet</title>
+        <!-- Leaflet CSS -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        />
+        <style>
+            #map {
+            height: 100vh;
+            width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script>
+        // Inicializar mapa
+        const map = L.map('map').setView([0, 0], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        let ruta = [];
+        let polyline = L.polyline(ruta, { color: 'blue' }).addTo(map);
+        let marcador;
+        if ('geolocation' in navigator) {
+            navigator.geolocation.watchPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const punto = [lat, lng];
+                // Guardar punto
+                ruta.push(punto);
+                // Actualizar polilínea
+                polyline.setLatLngs(ruta);
+                // Centrar mapa
+                map.setView(punto);
+                // Marcador de posición actual
+                if (marcador) {
+                marcador.setLatLng(punto);
+                } else {
+                marcador = L.marker(punto).addTo(map)
+                    .bindPopup('Estás aquí')
+                    .openPopup();
+                }
+            },
+            (error) => {
+                console.error('Error de geolocalización:', error);
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 1000,
+                timeout: 5000
+            }
+            );
+        } else {
+            alert('Geolocalización no soportada');
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ruta y Geocodificación Inversa</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            #map { height: 500px; width: 100%; margin-top: 20px; }
+            p { font-size: 1.1em; }
+            label { font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <h1>Ruta desde mi ubicación hasta un destino</h1>
+        <p id="estado">Comprobando geolocalización...</p>
+        <p>Ubicación actual: <span id="direccion"></span></p>
+        <label for="destino">Destino (dirección o lugar):</label>
+        <input type="text" id="destino" value="Plaza Mayor, Madrid">
+        <button onclick="calcularRuta()">Calcular ruta</button>
+        <div id="map"></div>
+        <!-- Cargar la API de Google Maps -->
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQs4dVPgPaENqfM302Mt_za7nfNJuFvGs">
+        </script>
+        <script>
+            let map, marcador, directionsService, directionsRenderer, geocoder;
+            let miUbicacion = null;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 0, lng: 0},
+                    zoom: 2
+                });
+                marcador = new google.maps.Marker({map: map, title: "Mi ubicación"});
+                directionsService = new google.maps.DirectionsService();
+                directionsRenderer = new google.maps.DirectionsRenderer({map: map});
+                geocoder = new google.maps.Geocoder();
+            }
+            // Obtener ubicación del usuario
+            function actualizarPosicion(pos) {
+                const lat = pos.coords.latitude;
+                const lon = pos.coords.longitude;
+                miUbicacion = {lat, lng: lon};
+                map.setCenter(miUbicacion);
+                map.setZoom(14);
+                marcador.setPosition(miUbicacion);
+                document.getElementById('estado').textContent = "Ubicación encontrada.";
+                // Geocodificación inversa
+                geocoder.geocode({location: miUbicacion}, (results, status) => {
+                    if (status === "OK" && results[0]) {
+                        document.getElementById('direccion').textContent = results[0].formatted_address;
+                    } else {
+                        document.getElementById('direccion').textContent = "No se pudo obtener la dirección.";
+                    }
+                });
+            }
+            function manejarError(error) {
+                let mensaje = "";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED: mensaje = "Permiso denegado por el usuario."; break;
+                    case error.POSITION_UNAVAILABLE: mensaje = "Posición no disponible."; break;
+                    case error.TIMEOUT: mensaje = "Tiempo de espera agotado."; break;
+                    case error.UNKNOWN_ERROR: mensaje = "Error desconocido."; break;
+                }
+                document.getElementById('estado').textContent = mensaje;
+            }
+            // Calcular y dibujar ruta hacia el destino
+            function calcularRuta() {
+                if (!miUbicacion) {
+                    alert("Primero se debe obtener la ubicación.");
+                    return;
+                }
+                const destino = document.getElementById('destino').value;
+                directionsService.route({
+                    origin: miUbicacion,
+                    destination: destino,
+                    travelMode: 'DRIVING'
+                }, (result, status) => {
+                    if (status === 'OK') {
+                        directionsRenderer.setDirections(result);
+                    } else {
+                        alert("No se pudo calcular la ruta: " + status);
+                    }
+                });
+            }
+            // Inicializar mapa y obtener ubicación
+            window.onload = () => {
+                initMap();
+                if ("geolocation" in navigator) {
+                    navigator.geolocation.watchPosition(actualizarPosicion, manejarError, {
+                        enableHighAccuracy: true,
+                        maximumAge: 1000,
+                        timeout: 5000
+                    });
+                } else {
+                    document.getElementById('estado').textContent = "Geolocalización no disponible en este navegador.";
+                }
+            };
+        </script>
+    </body>
+</html>

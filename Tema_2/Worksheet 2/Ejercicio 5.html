@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resolver Ecuación de Segundo Grado</title>
+    </head>
+    <body>
+        <h1>Resolver Ecuación de Segundo Grado</h1>
+        <p>Ingrese los coeficientes:</p>
+        <input type="number" id="a" placeholder="a">
+        <input type="number" id="b" placeholder="b">
+        <input type="number" id="c" placeholder="c">
+        <br>
+        <button onclick="resolverEcuacion()">Resolver</button>
+        <div id="resultado"></div>
+        <script>
+            function resolverEcuacion() {
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+            const c = parseFloat(document.getElementById("c").value);
+            const resultadoDiv = document.getElementById("resultado");
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                resultadoDiv.textContent = "Por favor, ingrese todos los coeficientes.";
+                return;
+            }
+            if (a === 0) {
+                resultadoDiv.textContent = "No es una ecuación de segundo grado (a ≠ 0).";
+                return;
+            }
+            const discriminante = b*b - 4*a*c;
+            if (discriminante > 0) {
+                const x1 = (-b + Math.sqrt(discriminante)) / (2*a);
+                const x2 = (-b - Math.sqrt(discriminante)) / (2*a);
+                resultadoDiv.textContent = `Dos soluciones reales: x1 = ${x1.toFixed(3)}, x2 = ${x2.toFixed(3)}`;
+            } else if (discriminante === 0) {
+                const x = -b / (2*a);
+                resultadoDiv.textContent = `Una solución real: x = ${x.toFixed(3)}`;
+            } else {
+                // Soluciones complejas
+                const real = (-b / (2*a)).toFixed(3);
+                const imag = (Math.sqrt(-discriminante) / (2*a)).toFixed(3);
+                resultadoDiv.textContent = `Dos soluciones complejas: x1 = ${real} + ${imag}i, x2 = ${real} - ${imag}i`;
+            }
+            }
+        </script>
+    </body>
+</html>

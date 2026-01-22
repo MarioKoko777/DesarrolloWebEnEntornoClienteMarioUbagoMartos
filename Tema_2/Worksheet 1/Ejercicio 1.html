@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fecha y Hora Actual</title>
+    </head>
+    <body>
+        <h1>Información de la Fecha y Hora Actual</h1>
+        <div id="fechaHora"></div>
+        <script>
+            // Crear objeto Date
+            const ahora = new Date();
+            // Obtener los datos
+            const anio = ahora.getFullYear();       // Año actual
+            const mes = ahora.getMonth() + 1;       // Mes actual (0-11, por eso +1)
+            const dia = ahora.getDate();            // Día actual
+            const hora = ahora.getHours();          // Hora actual
+            const minutos = ahora.getMinutes();     // Minutos actuales
+            const segundos = ahora.getSeconds();    // Segundos actuales
+            // Crear contenido para mostrar
+            const contenido = `
+                Año actual: ${anio} <br>
+                Mes actual: ${mes} <br>
+                Día actual: ${dia} <br>
+                Hora actual: ${hora} <br>
+                Minutos actuales: ${minutos} <br>
+                Segundos actuales: ${segundos}
+            `;
+            // Mostrar en la página
+            document.getElementById('fechaHora').innerHTML = contenido;
+        </script>
+    </body>
+</html>

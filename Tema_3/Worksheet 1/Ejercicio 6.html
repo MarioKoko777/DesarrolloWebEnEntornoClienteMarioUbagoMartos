@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Potencia Recursiva</title>
+    </head>
+    <body>
+        <h2>Calcular potencia (recursiva)</h2>
+        <input type="number" id="base" placeholder="Base">
+        <input type="number" id="exponente" placeholder="Exponente">
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function potencia(base, exponente) {
+                if (exponente === 0) {
+                    return 1;
+                }
+                return base * potencia(base, exponente - 1);
+            }
+            function calcular() {
+                const base = parseInt(document.getElementById("base").value);
+                const exponente = parseInt(document.getElementById("exponente").value);
+                const resultado = potencia(base, exponente);
+                document.getElementById("resultado").textContent =
+                    `Resultado: ${resultado}`;
+            }
+        </script>
+    </body>
+</html>

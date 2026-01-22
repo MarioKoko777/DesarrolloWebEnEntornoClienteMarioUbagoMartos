@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tablas de multiplicar</title>
+    </head>
+    <body>
+        <script>
+            // Bucle externo para recorrer las tablas del 1 al 10
+            for (let i = 1; i <= 10; i++) {
+                // Título de la tabla
+                document.write('<strong>Tabla del ' + i + ':</strong><br>');
+                // Bucle interno para calcular las multiplicaciones del 1 al 10
+                for (let j = 1; j <= 10; j++) {
+                    document.write(i + 'x' + j + '=' + (i * j) + '<br>');
+                }
+                // Línea en blanco para separar tablas
+                document.write('<br>');
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tabla con JavaScript</title>
+    </head>
+    <body>
+        <script>
+            // Pedir al usuario los valores
+            let columnas = Number(prompt("Ingrese el número de columnas"));
+            let altura = Number(prompt("Ingrese la altura de las celdas en pixels"));
+            let ancho = Number(prompt("Ingrese el ancho de las celdas en pixels"));
+            // Escribir el inicio de la tabla
+            document.write('<table border="0" cellspacing="2" bgcolor="black" width="200">');
+            document.write('<tr bgcolor="white" height="' + altura + '">');
+            // Bucle para crear las celdas según el número de columnas
+            for (let i = 0; i < columnas; i++) {
+                document.write('<td width="' + ancho + '">&nbsp;</td>');
+            }
+            // Cerrar la fila y la tabla
+            document.write('</tr>');
+            document.write('</table>');
+        </script>
+    </body>
+</html>

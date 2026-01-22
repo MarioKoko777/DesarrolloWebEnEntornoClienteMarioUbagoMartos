@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rastreador de actividad</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            button { margin: 5px; padding: 10px 15px; }
+            #resultado { margin-top: 20px; }
+        </style>
+    </head>
+    <body>
+        <h1>Rastreador de actividad</h1>
+        <button id="startBtn">Iniciar rastreo</button>
+        <button id="stopBtn">Detener rastreo</button>
+        <div id="resultado">
+        <p><strong>Distancia:</strong> <span id="distancia">0</span> metros</p>
+        <p><strong>Tiempo:</strong> <span id="tiempo">0</span> segundos</p>
+        </div>
+        <script>
+        let posiciones = [];
+        let watchId = null;
+        let startTime = null;
+        const distanciaEl = document.getElementById("distancia");
+        const tiempoEl = document.getElementById("tiempo");
+        function calcularDistancia(pos1, pos2) {
+        // Fórmula de Haversine
+        const R = 6371000; // metros
+        const rad = Math.PI / 180;
+        const lat1 = pos1.latitude * rad;
+        const lat2 = pos2.latitude * rad;
+        const dLat = (pos2.latitude - pos1.latitude) * rad;
+        const dLon = (pos2.longitude - pos1.longitude) * rad;
+        const a = Math.sin(dLat/2)**2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon/2)**2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c; // distancia en metros
+        }
+        function actualizarResultados() {
+        let distanciaTotal = 0;
+        for (let i = 1; i < posiciones.length; i++) {
+            distanciaTotal += calcularDistancia(posiciones[i-1], posiciones[i]);
+        }
+        const tiempoTranscurrido = startTime ? Math.floor((Date.now() - startTime)/1000) : 0;
+        distanciaEl.textContent = distanciaTotal.toFixed(2);
+        tiempoEl.textContent = tiempoTranscurrido;
+        }
+        document.getElementById("startBtn").addEventListener("click", () => {
+        if (!navigator.geolocation) {
+            alert("Tu navegador no soporta geolocalización");
+            return;
+        }
+        posiciones = [];
+        startTime = Date.now();
+        watchId = navigator.geolocation.watchPosition(
+            (pos) => {
+            const coords = { latitude: pos.coords.latitude, longitude: pos.coords.longitude };
+            posiciones.push(coords);
+            actualizarResultados();
+            },
+            (err) => {
+            alert("Error al obtener ubicación: " + err.message);
+            },
+            { enableHighAccuracy: true, maximumAge: 1000, timeout: 5000 }
+        );
+        alert("✅ Rastreo iniciado");
+        });
+        document.getElementById("stopBtn").addEventListener("click", () => {
+        if (watchId !== null) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+            alert("🛑 Rastreo detenido");
+        }
+        });
+        </script>
+    </body>
+</html>

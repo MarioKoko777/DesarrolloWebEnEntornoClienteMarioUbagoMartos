@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Barra de estado simulada</title>
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding-bottom: 30px; /* espacio para la barra */
+            }
+            #barraEstado {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            font-size: 14px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Prueba del objeto Window</h1>
+        <p>Esta página simula la barra de estado usando un div fijo en la parte inferior.</p>
+        <!-- Barra de estado simulada -->
+        <div id="barraEstado"></div>
+        <script>
+            // Función para mostrar un mensaje en la "barra de estado"
+            function mostrarEstado(mensaje) {
+            const barra = document.getElementById("barraEstado");
+            barra.textContent = mensaje;
+            }
+            // Mostramos el mensaje al cargar la página
+            window.onload = function() {
+            mostrarEstado("Probando el objeto Window de JavaScript");
+            };
+            // Opcional: cambiar mensaje al mover el mouse
+            window.onmousemove = function() {
+            mostrarEstado("Probando el objeto Window de JavaScript");
+            };
+        </script>
+    </body>
+</html>

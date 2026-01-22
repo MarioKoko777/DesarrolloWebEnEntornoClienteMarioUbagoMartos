@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Resumen de Ventas</title>
+        <style type="text/css">
+            table { border-collapse: collapse; width: 50%; margin: 20px auto; }
+            th, td { border: 1px solid #000; padding: 5px; text-align: center; }
+            th { background-color: #eee; }
+            tfoot td { font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <h2 style="text-align:center;">Resumen de Ventas por Producto y Vendedor</h2>
+        <div id="tablaVentas"></div>
+        <script type="text/javascript">
+            // Simulamos los estadillos del mes: [vendedor, producto, venta]
+            // Vendedores: 1-4, Productos: 1-5
+            const estadillos = [
+            [1, 1, 100], [1, 2, 150], [1, 3, 200],
+            [2, 1, 120], [2, 3, 180], [2, 5, 250],
+            [3, 2, 200], [3, 4, 100],
+            [4, 1, 90],  [4, 2, 60], [4, 3, 70], [4, 4, 50], [4, 5, 40]
+            ];
+            // Inicializamos la matriz de 5 productos x 4 vendedores con ceros
+            const ventas = [];
+            const numProductos = 5;
+            const numVendedores = 4;
+            for (let i = 0; i < numProductos; i++) {
+            ventas[i] = [];
+            for (let j = 0; j < numVendedores; j++) {
+                ventas[i][j] = 0;
+            }
+            }
+            // Procesamos cada estadillo y acumulamos las ventas
+            estadillos.forEach(([vendedor, producto, valor]) => {
+            // Ajustamos índices (-1) porque array empieza en 0
+            ventas[producto - 1][vendedor - 1] += valor;
+            });
+            // Creamos la tabla XHTML
+            let tabla = '<table>';
+            tabla += '<thead><tr><th>Producto / Vendedor</th>';
+            for (let v = 1; v <= numVendedores; v++) {
+            tabla += '<th>Vendedor ' + v + '</th>';
+            }
+            tabla += '<th>Total Producto</th></tr></thead>';
+            tabla += '<tbody>';
+            for (let p = 0; p < numProductos; p++) {
+            tabla += '<tr><td>Producto ' + (p + 1) + '</td>';
+            let totalProducto = 0;
+            for (let v = 0; v < numVendedores; v++) {
+                tabla += '<td>' + ventas[p][v] + '</td>';
+                totalProducto += ventas[p][v];
+            }
+            tabla += '<td>' + totalProducto + '</td></tr>';
+            }
+            tabla += '</tbody>';
+            // Fila de totales por vendedor
+            tabla += '<tfoot><tr><td>Total Vendedor</td>';
+            let totalGeneral = 0;
+            for (let v = 0; v < numVendedores; v++) {
+            let totalVendedor = 0;
+            for (let p = 0; p < numProductos; p++) {
+                totalVendedor += ventas[p][v];
+            }
+            tabla += '<td>' + totalVendedor + '</td>';
+            totalGeneral += totalVendedor;
+            }
+            tabla += '<td>' + totalGeneral + '</td></tr></tfoot>';
+            tabla += '</table>';
+            // Mostramos la tabla en el div
+            document.getElementById('tablaVentas').innerHTML = tabla;
+        </script>
+    </body>
+</html>

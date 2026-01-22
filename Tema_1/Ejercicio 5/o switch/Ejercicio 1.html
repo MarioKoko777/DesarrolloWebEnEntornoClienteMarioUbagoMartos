@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Días del Mes</title>
+    </head>
+    <body>
+        <h2>Calcula los días de un mes</h2>
+        <input type="text" id="mes" placeholder="Escribe un mes">
+        <button onclick="diasDelMes()">Comprobar</button>
+        <p id="resultado"></p>
+        <script>
+            function diasDelMes() {
+                let mes = document.getElementById("mes").value.toLowerCase();
+                let resultado = document.getElementById("resultado");
+                switch(mes) {
+                    case "enero":
+                    case "marzo":
+                    case "mayo":
+                    case "julio":
+                    case "agosto":
+                    case "octubre":
+                    case "diciembre":
+                        resultado.textContent = "El mes tiene 31 días.";
+                        break;
+                    case "abril":
+                    case "junio":
+                    case "septiembre":
+                    case "noviembre":
+                        resultado.textContent = "El mes tiene 30 días.";
+                        break;
+                    case "febrero":
+                        resultado.textContent = "El mes tiene 28 o 29 días, dependiendo si es año bisiesto.";
+                        break;
+                    default:
+                        resultado.textContent = "Mes no reconocido. Asegúrate de escribirlo correctamente.";
+                }
+            }
+        </script>
+    </body>
+</html>

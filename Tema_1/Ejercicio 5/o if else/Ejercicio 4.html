@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Descuento por hermanos</title>
+    </head>
+    <body>
+        <script>
+            // Pedir número de hermanos y cantidad
+            let hermanos = parseInt(prompt("¿Cuántos hermanos tienes?"));
+            let cantidad = parseFloat(prompt("Introduce la cantidad:"));
+            let cantidadFinal;
+            // Aplicar descuento según el número de hermanos
+            if (hermanos > 3) {
+                cantidadFinal = cantidad * 0.85; // 15% de descuento
+                document.write("<p>Como tienes más de 3 hermanos, el precio con descuento es: " + cantidadFinal.toFixed(2) + "</p>");
+            } else if (hermanos > 0 && hermanos <= 3) {
+                cantidadFinal = cantidad * 0.95; // 5% de descuento
+                document.write("<p>Como tienes menos de 3 hermanos, el precio con descuento es: " + cantidadFinal.toFixed(2) + "</p>");
+            } else if (hermanos === 0) {
+                cantidadFinal = cantidad; // Sin descuento
+                document.write("<p>No tienes hermanos, el precio es: " + cantidadFinal.toFixed(2) + "</p>");
+            } else {
+                document.write("<p>Por favor, introduce un número válido de hermanos.</p>");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Práctica de Ventanas</title>
+        <style>
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            h1 { text-align: center; }
+            a { display: block; margin: 8px 0; font-size: 16px; color: #007BFF; cursor: pointer; text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <h1>Práctica de Ventanas en JavaScript</h1>
+        <a onclick="apartadoA()">a) Confirmación</a>
+        <a onclick="apartadoB()">b) Abrir y analizar ventana</a>
+        <a onclick="apartadoC()">c) Cambiar línea de estado</a>
+        <a onclick="apartadoD()">d) Cambiar nombre de la ventana</a>
+        <a onclick="apartadoE()">e) Cerrar ventanas</a>
+        <a onclick="apartadoF()">f) Ventana 300x100 (resizable)</a>
+        <a onclick="apartadoG()">g) Ventana 300x100 + escribir en padre</a>
+        <a onclick="apartadoH()">h) Mover ventana 50px abajo y derecha</a>
+        <a onclick="apartadoI()">i) Posición específica</a>
+        <a onclick="apartadoJ()">j) Tamaño 50x50 esquina inferior derecha</a>
+        <a onclick="apartadoK()">k) Cambiar tamaño a 450x250</a>
+        <a onclick="apartadoL()">l) Scroll 10px hacia abajo</a>
+        <a onclick="apartadoM()">m) Scroll a posición específica</a>
+        <script>
+        let ventanaNueva;
+        // a) Confirmación
+        function apartadoA() {
+            const opcion = confirm("¿Deseas continuar?");
+            alert("Has pulsado: " + (opcion ? "Aceptar" : "Cancelar"));
+        }
+        // b) Abrir ventana y analizar si se cerró
+        function apartadoB() {
+            ventanaNueva = window.open("", "bVentana", "width=200,height=100");
+            setTimeout(() => {
+                if (ventanaNueva.closed) {
+                    alert("La ventana se cerró");
+                } else {
+                    alert("La ventana sigue abierta");
+                }
+            }, 2000);
+        }
+        // c) Cambiar línea de estado
+        function apartadoC() {
+            window.status = "Nueva línea de estado";
+            alert("Se ha cambiado la línea de estado a: " + window.status);
+        }
+        // d) Cambiar nombre de la ventana
+        function apartadoD() {
+            const nuevoNombre = prompt("Escribe un nuevo nombre para esta ventana:");
+            if(nuevoNombre) window.name = nuevoNombre;
+            alert("Nombre de la ventana cambiado a: " + window.name);
+        }
+        // e) Cerrar ventanas
+        function apartadoE() {
+            // Cierra la ventana actual
+            if(confirm("¿Cerrar ventana actual?")) window.close();
+
+            // Cierra la ventana abierta en ventanaNueva
+            if(ventanaNueva && !ventanaNueva.closed) ventanaNueva.close();
+        }
+        // f) Abrir ventana resizable 300x100
+        function apartadoF() {
+            ventanaNueva = window.open("", "fVentana", "width=300,height=100,resizable=yes");
+        }
+        // g) Abrir ventana y escribir en padre
+        function apartadoG() {
+            ventanaNueva = window.open("", "gVentana", "width=300,height=100,resizable=yes");
+            ventanaNueva.document.write("<p>Ventana hija abierta</p>");
+            document.body.insertAdjacentHTML("beforeend","<p>Se abrió una ventana hija</p>");
+        }
+        // h) Mover ventana 50px abajo y derecha
+        function apartadoH() {
+            if(ventanaNueva && !ventanaNueva.closed) ventanaNueva.moveBy(50,50);
+            else alert("Primero abre una ventana con f) o g)");
+        }
+        // i) Mover ventana a posición concreta
+        function apartadoI() {
+            if(ventanaNueva && !ventanaNueva.closed) ventanaNueva.moveTo(100,100);
+            else alert("Primero abre una ventana con f) o g)");
+        }
+        // j) Cambiar tamaño a 50x50 en esquina inferior derecha
+        function apartadoJ() {
+            if(ventanaNueva && !ventanaNueva.closed) {
+                const ancho = screen.availWidth;
+                const alto = screen.availHeight;
+                ventanaNueva.resizeTo(50,50);
+                ventanaNueva.moveTo(ancho-50, alto-50);
+            } else alert("Primero abre una ventana con f) o g)");
+        }
+        // k) Cambiar tamaño a 450x250
+        function apartadoK() {
+            if(ventanaNueva && !ventanaNueva.closed) ventanaNueva.resizeTo(450,250);
+            else alert("Primero abre una ventana con f) o g)");
+        }
+        // l) Desplazar barra de scroll 10px hacia abajo
+        function apartadoL() {
+            if(ventanaNueva && !ventanaNueva.closed) ventanaNueva.scrollBy(0,10);
+            else alert("Primero abre una ventana con f) o g)");
+        }
+        // m) Desplazar barra de scroll a posición específica
+        function apartadoM() {
+            if(ventanaNueva && !ventanaNueva.closed) ventanaNueva.scrollTo(0,50);
+            else alert("Primero abre una ventana con f) o g)");
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>El Conversor de Temperatura</title>
+    </head>
+    <body>
+        <h1>El Conversor de Temperatura</h1>
+        <div id="resultado"></div>
+        <script>
+            // Función de Celsius a Fahrenheit
+            function celsiusToFahrenheit(celsius) {
+                const fahrenheit = (celsius * 9 / 5) + 32;
+                const p = document.createElement("p");
+                p.textContent = `${celsius}°C son ${fahrenheit.toFixed(2)}°F.`;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // Función de Fahrenheit a Celsius
+            function fahrenheitToCelsius(fahrenheit) {
+                const celsius = (fahrenheit - 32) * 5 / 9;
+                const p = document.createElement("p");
+                p.textContent = `${fahrenheit}°F son ${celsius.toFixed(2)}°C.`;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // Función para pedir y validar temperaturas
+            function pedirTemperaturas() {
+                let celsius = prompt("Ingresa una temperatura en grados Celsius:");
+                let fahrenheit = prompt("Ingresa una temperatura en grados Fahrenheit:");
+                // Validación
+                if (
+                    celsius === null || celsius === "" || isNaN(celsius) ||
+                    fahrenheit === null || fahrenheit === "" || isNaN(fahrenheit)
+                ) {
+                    alert("Error: Debes ingresar valores numéricos válidos.");
+                    return;
+                }
+                celsiusToFahrenheit(parseFloat(celsius));
+                fahrenheitToCelsius(parseFloat(fahrenheit));
+            }
+            // Llamar la función 3 veces
+            pedirTemperaturas();
+            pedirTemperaturas();
+            pedirTemperaturas();
+        </script>
+    </body>
+</html>

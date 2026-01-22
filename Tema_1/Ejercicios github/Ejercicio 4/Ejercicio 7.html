@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Adivina el número (do while)</title>
+    </head>
+    <body>
+        <script>
+            // Jugador 1 introduce el número a adivinar
+            let num_adivinar = Number(prompt("Jugador 1: Introduce el número a adivinar"));
+            // Inicializamos la variable del intento del jugador 2
+            let num;
+            // Bucle do...while: se ejecuta al menos una vez
+            do {
+                num = Number(prompt("Jugador 2: Adivina el número"));
+
+                if (num < num_adivinar) {
+                    alert("El número es mayor");
+                } else if (num > num_adivinar) {
+                    alert("El número es menor");
+                } else {
+                    alert("¡Felicidades! Has adivinado el número");
+                }
+            } while (num !== num_adivinar); // Repetir mientras no acierte
+        </script>
+    </body>
+</html>

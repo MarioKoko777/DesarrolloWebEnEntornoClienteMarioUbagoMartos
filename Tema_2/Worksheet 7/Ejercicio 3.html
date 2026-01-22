@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Geolocalización con Google Maps</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            #map {
+                width: 100%;
+                height: 500px;
+                margin-top: 20px;
+                border: 1px solid #444;
+            }
+            p { font-size: 1.1em; }
+        </style>
+    </head>
+    <body>
+        <h1>Mi ubicación en tiempo real (Google Maps)</h1>
+        <p id="estado">Comprobando geolocalización...</p>
+        <p>Latitud: <span id="lat"></span></p>
+        <p>Longitud: <span id="lon"></span></p>
+        <div id="map"></div>
+        <!-- Cargar la API de Google Maps -->
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQs4dVPgPaENqfM302Mt_za7nfNJuFvGs">
+        </script>
+        <script>
+            let map;
+            let marcador;
+            // Inicializar el mapa con coordenadas provisionales
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 0, lng: 0},
+                    zoom: 2
+                });
+            }
+            // Función para actualizar posición
+            function actualizarPosicion(pos) {
+                const lat = pos.coords.latitude;
+                const lon = pos.coords.longitude;
+                document.getElementById('lat').textContent = lat.toFixed(6);
+                document.getElementById('lon').textContent = lon.toFixed(6);
+                document.getElementById('estado').textContent = "Ubicación encontrada.";
+                const posicion = {lat: lat, lng: lon};
+                // Inicializar el mapa si no existe
+                if (!map) {
+                    initMap();
+                }
+                // Centrar mapa
+                map.setCenter(posicion);
+                map.setZoom(16);
+                // Si ya hay un marcador, moverlo; si no, crearlo
+                if (marcador) {
+                    marcador.setPosition(posicion);
+                } else {
+                    marcador = new google.maps.Marker({
+                        position: posicion,
+                        map: map,
+                        title: "¡Aquí estás!"
+                    });
+                }
+            }
+            // Manejo de errores
+            function manejarError(error) {
+                let mensaje = "";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        mensaje = "Permiso denegado por el usuario.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        mensaje = "Posición no disponible.";
+                        break;
+                    case error.TIMEOUT:
+                        mensaje = "Tiempo de espera agotado.";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        mensaje = "Error desconocido.";
+                        break;
+                }
+                document.getElementById('estado').textContent = mensaje;
+            }
+            // Comprobar geolocalización
+            if ("geolocation" in navigator) {
+                document.getElementById('estado').textContent = "Geolocalización disponible. Obteniendo posición...";
+                navigator.geolocation.watchPosition(actualizarPosicion, manejarError, {
+                    enableHighAccuracy: true,
+                    maximumAge: 1000,
+                    timeout: 5000
+                });
+            } else {
+                document.getElementById('estado').textContent = "Geolocalización no disponible en este navegador.";
+            }
+        </script>
+    </body>
+</html>

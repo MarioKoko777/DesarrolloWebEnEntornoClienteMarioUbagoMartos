@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Números de N a 1</title>
+    </head>
+    <body>
+        <h2>Contar de N a 1</h2>
+        <p id="resultado"></p>
+        <script>
+            // Pedir el número al usuario
+            let n = parseInt(prompt("Ingresa un número"));
+            let salida = "";
+            // Validar que sea un número positivo
+            if (n > 0) {
+                for (let i = n; i >= 1; i--) {
+                    salida += i + " ";
+                }
+            } else {
+                salida = "Por favor ingresa un número válido mayor que 0.";
+            }
+            // Mostrar el resultado
+            document.getElementById("resultado").textContent = salida;
+        </script>
+    </body>
+</html>

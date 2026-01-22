@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Etapa Educativa</title>
+    </head>
+    <body>
+        <h2>¿En qué etapa educativa deberías estar?</h2>
+        <input type="number" id="edad" placeholder="Introduce tu edad">
+        <button onclick="determinarEtapa()">Comprobar</button>
+        <p id="resultado"></p>
+        <script>
+            function determinarEtapa() {
+                let edad = parseInt(document.getElementById("edad").value);
+                let resultado = document.getElementById("resultado");
+                if (isNaN(edad) || edad < 0) {
+                    resultado.textContent = "Por favor, introduce una edad válida.";
+                } else if (edad < 5) {
+                    resultado.textContent = "Debes estar en el jardín de infancia.";
+                } else if (edad >= 6 && edad <= 11) {
+                    resultado.textContent = "Debes estar en primaria.";
+                } else if (edad >= 12 && edad <= 16) {
+                    resultado.textContent = "Debes estar en la ESO.";
+                } else if (edad >= 17 && edad <= 21) {
+                    resultado.textContent = "Debes estar en Bachillerato o Ciclos.";
+                } else {
+                    resultado.textContent = "Debes estar en la Universidad.";
+                }
+            }
+        </script>
+    </body>
+</html>

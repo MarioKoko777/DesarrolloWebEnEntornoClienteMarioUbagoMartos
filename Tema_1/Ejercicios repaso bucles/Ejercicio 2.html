@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Números de 1 a N de 2 en 2</title>
+    </head>
+    <body>
+        <h2>Números de 1 a N (de 2 en 2)</h2>
+        <div id="resultado"></div>
+        <script>
+            // Pedir el número al usuario
+            let n = parseInt(prompt("Ingrese un número N:"));
+            let resultado = "";
+            // Validar que sea un número válido
+            if (!isNaN(n) && n >= 1) {
+                for (let i = 1; i <= n; i += 2) {
+                    resultado += i + "<br>";
+                }
+            } else {
+                resultado = "Por favor, ingrese un número válido mayor o igual a 1.";
+            }
+            // Mostrar resultado en el HTML
+            document.getElementById("resultado").innerHTML = resultado;
+        </script>
+    </body>
+</html>

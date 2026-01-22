@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>El Calculador de Edad</title>
+    </head>
+    <body>
+        <h1>El Calculador de Edad</h1>
+        <div id="resultado"></div>
+        <script>
+            // Función que calcula la edad
+            function calculateAge(anioNacimiento, anioActual) {
+                const edad1 = anioActual - anioNacimiento;
+                const edad2 = edad1 - 1;
+                const mensaje = `Tienes ${edad2} o ${edad1} años.`;
+                const p = document.createElement("p");
+                p.textContent = mensaje;
+                document.getElementById("resultado").appendChild(p);
+            }
+            // BONUS: obtener el año actual automáticamente
+            const anioActual = new Date().getFullYear();
+            // Función para pedir y validar el año de nacimiento
+            function pedirEdad(numero) {
+                let nacimiento = prompt(`Ingresa tu año de nacimiento (${numero}):`);
+                // Validación
+                if (
+                    nacimiento === null ||
+                    nacimiento === "" ||
+                    isNaN(nacimiento) ||
+                    nacimiento > anioActual ||
+                    nacimiento < 1915
+                ) {
+                    alert("Error: Debes ingresar un año de nacimiento válido.");
+                    return;
+                }
+                calculateAge(parseInt(nacimiento), anioActual);
+            }
+            // Llamar la función 3 veces
+            pedirEdad(1);
+            pedirEdad(2);
+            pedirEdad(3);
+        </script>
+    </body>
+</html>

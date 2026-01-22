@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Práctica de Fechas</title>
+    </head>
+    <body>
+        <h1>Práctica de Fechas</h1>
+        <div id="resultado"></div>
+        <script>
+            const resultadoDiv = document.getElementById("resultado");
+            // a. Crear variable "fechaHoy" con fecha de hoy
+            let fechaHoy = new Date();
+            resultadoDiv.innerHTML += `<div class="resultado"><strong>a.</strong> Fecha de hoy: ${fechaHoy}</div>`;
+            // b. Crear variable "fecha85" que sume 85 días a fechaHoy
+            let fecha85 = new Date(fechaHoy); // clonamos fechaHoy
+            fecha85.setDate(fecha85.getDate() + 85);
+            resultadoDiv.innerHTML += `<div class="resultado"><strong>b.</strong> Fecha +85 días: ${fecha85}</div>`;
+            // c. Crear variable "fecha187" que reste 187 días a fechaHoy
+            let fecha187 = new Date(fechaHoy); // clonamos fechaHoy
+            fecha187.setDate(fecha187.getDate() - 187);
+            resultadoDiv.innerHTML += `<div class="resultado"><strong>c.</strong> Fecha -187 días: ${fecha187}</div>`;
+            // d. Sumar 2 años a la variable "fecha85"
+            let fecha85Mas2Anos = new Date(fecha85); // clonamos fecha85
+            fecha85Mas2Anos.setFullYear(fecha85Mas2Anos.getFullYear() + 2);
+            resultadoDiv.innerHTML += `<div class="resultado"><strong>d.</strong> Fecha +85 días + 2 años: ${fecha85Mas2Anos}</div>`;
+            // e. Restar 24 horas a la variable "fecha187"
+            let fecha187Menos24h = new Date(fecha187); // clonamos fecha187
+            fecha187Menos24h.setHours(fecha187Menos24h.getHours() - 24);
+            resultadoDiv.innerHTML += `<div class="resultado"><strong>e.</strong> Fecha -187 días - 24 horas: ${fecha187Menos24h}</div>`;
+            // f. Crear variable "fechaResto" que sea fecha85 - fecha187
+            let fechaResto = fecha85 - fecha187; // esto devuelve milisegundos
+            let diasResto = fechaResto / (1000 * 60 * 60 * 24); // convertir a días
+            resultadoDiv.innerHTML += `<div class="resultado"><strong>f.</strong> Diferencia entre fecha85 y fecha187: ${diasResto} días (${fechaResto} ms)</div>`;
+        </script>
+    </body>
+</html>

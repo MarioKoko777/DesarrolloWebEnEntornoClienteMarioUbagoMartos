@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Palabras del usuario</title>
+    </head>
+    <body>
+        <script>
+            let palabra;
+            // Bucle que se repite hasta que el usuario escriba "SALIR"
+            do {
+                palabra = prompt("Introduce una palabra (escribe 'SALIR' para terminar):");  
+                // Comprobar si la palabra no es "SALIR"
+                if (palabra !== null && palabra.toUpperCase() !== "SALIR") {
+                    document.write("<p>" + palabra + "</p>");
+                }
+            } while (palabra !== null && palabra.toUpperCase() !== "SALIR");
+        </script>
+    </body>
+</html>

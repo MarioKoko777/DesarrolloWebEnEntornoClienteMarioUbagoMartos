@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tabla de Seno</title>
+    </head>
+    <body>
+        <h1>Tabla de Seno</h1>
+        <table id="tablaSeno">
+            <thead>
+            <tr>
+                <th>Número</th>
+                <th>Seno</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Filas generadas por JavaScript -->
+            </tbody>
+        </table>
+        <script>
+            const tbody = document.querySelector("#tablaSeno tbody");
+            const cantidad = 20; // Cuántos números generar
+            for (let i = 1; i <= cantidad; i++) {
+            const fila = document.createElement("tr");
+            const celdaNumero = document.createElement("td");
+            celdaNumero.textContent = i;
+            const celdaSeno = document.createElement("td");
+            celdaSeno.textContent = Math.sin(i).toFixed(4); // Redondea a 4 decimales
+            fila.appendChild(celdaNumero);
+            fila.appendChild(celdaSeno);
+            tbody.appendChild(fila);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Funciones de Manipulación de Cadenas</title>
+        <style type="text/css">
+            body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.8; }
+            input, button { margin: 5px 0; }
+        </style>
+        <script type="text/javascript">
+            // a) Invierte una cadena
+            function invierteCadena(cad_arg) {
+                return cad_arg.split('').reverse().join('');
+            }
+            // b) Invierte las palabras de la cadena
+            function inviertePalabras(cad_arg) {
+                return cad_arg.split(' ').reverse().join(' ');
+            }
+            // c) Encuentra la longitud de la palabra más larga
+            function encuentraPalabraMasLarga(cad_arg) {
+                var palabras = cad_arg.split(' ');
+                var max = 0;
+                for (var i = 0; i < palabras.length; i++) {
+                    if (palabras[i].length > max) max = palabras[i].length;
+                }
+                return max;
+            }
+            // d) Número de palabras con longitud mayor a i
+            function filtraPalabrasMasLargas(cad_arg, i) {
+                var palabras = cad_arg.split(' ');
+                var contador = 0;
+                for (var j = 0; j < palabras.length; j++) {
+                    if (palabras[j].length > i) contador++;
+                }
+                return contador;
+            }
+            // e) Formatea la cadena: primera letra mayúscula, resto minúscula
+            function cadenaBienFormada(cad_arg) {
+                if (cad_arg.length === 0) return '';
+                return cad_arg.charAt(0).toUpperCase() + cad_arg.slice(1).toLowerCase();
+            }
+            // Función para probar todas desde la página
+            function probarFunciones() {
+                var cadena = document.getElementById('cadena').value;
+                var valorI = parseInt(document.getElementById('valorI').value, 10);
+                document.getElementById('resultadoA').textContent = invierteCadena(cadena);
+                document.getElementById('resultadoB').textContent = inviertePalabras(cadena);
+                document.getElementById('resultadoC').textContent = encuentraPalabraMasLarga(cadena);
+                document.getElementById('resultadoD').textContent = filtraPalabrasMasLargas(cadena, valorI);
+                document.getElementById('resultadoE').textContent = cadenaBienFormada(cadena);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Funciones de Manipulación de Cadenas</h1>
+        <label for="cadena">Ingrese una cadena:</label><br />
+        <input type="text" id="cadena" size="60" /><br />
+        <label for="valorI">Ingrese valor numérico (i) para filtrar palabras largas:</label><br />
+        <input type="number" id="valorI" /><br />
+        <button type="button" onclick="probarFunciones()">Probar Funciones</button>
+        <h2>Resultados:</h2>
+        <p>a) Cadena invertida: <span id="resultadoA"></span></p>
+        <p>b) Palabras invertidas: <span id="resultadoB"></span></p>
+        <p>c) Longitud de la palabra más larga: <span id="resultadoC"></span></p>
+        <p>d) Número de palabras con longitud mayor a i: <span id="resultadoD"></span></p>
+        <p>e) Cadena bien formada: <span id="resultadoE"></span></p>
+    </body>
+</html>
