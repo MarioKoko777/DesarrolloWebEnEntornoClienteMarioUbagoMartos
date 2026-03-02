@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hangman</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#bada55;color:#fff;display:flex;min-height:100vh;align-items:center;justify-content:center}
+.wrap{max-width:900px;width:100%;padding:32px;text-align:center}
+.h1{font-size:44px;letter-spacing:2px}
+.h2{font-size:18px;margin-top:6px;opacity:.9}
+.info{margin:16px 0 20px 0;font-size:16px}
+.word{font-family:Consolas,monospace;font-size:48px;letter-spacing:10px;margin:18px 0 8px 0}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.btn{background:transparent;border:2px solid rgba(255,255,255,.9);color:#fff;border-radius:8px;padding:10px 16px;font-size:16px;cursor:pointer;transition:all .12s}
+.btn:hover{background:rgba(255,255,255,.12)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.alpha{display:grid;grid-template-columns:repeat(13,1fr);gap:8px;max-width:760px;margin:16px auto}
+.alpha .btn{padding:10px 0}
+.status{margin-top:8px;font-size:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="h1">HANGMAN</div>
+  <div class="h2">VANILLA JAVASCRIPT HANGMAN GAME</div>
+  <div class="info">Usa el alfabeto para adivinar la palabra o pide una pista.</div>
+  <div id="category" class="status"></div>
+  <div id="word" class="word">_</div>
+  <div id="alphabet" class="alpha"></div>
+  <div class="row">
+    <button id="hint" class="btn">Pista</button>
+    <button id="reset" class="btn">Reiniciar</button>
+  </div>
+  <div id="lives" class="status"></div>
+  <div id="result" class="status"></div>
+  <div id="used" class="status"></div>
+  <div id="clue" class="status"></div>
+  <div id="drawing" class="status"></div>
+  <div></div>
+  <div></div>
+</div>
+<script src="hangman.js"></script>
+
+</script>
+</body>
+</html>

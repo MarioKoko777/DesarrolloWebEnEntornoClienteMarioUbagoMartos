@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Visualizaciones con Google Charts</title>
+        <link rel="stylesheet" href="style 1.css">
+    </head>
+    <body>
+        <header>
+            <h1>Visualizaciones con Google Charts</h1>
+            <p>Representación del Congreso de los Diputados y ranking de países turísticos</p>
+        </header>
+        <main>
+            <section class="chart-section">
+                <h2>a) Representación en el Congreso de los Diputados</h2>
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <h3>Gráfico de Barras</h3>
+                        <div id="barchart" class="chart"></div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <h3>Gráfico de Sectores</h3>
+                        <div id="piechart" class="chart"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="chart-section">
+                <h2>b) Ranking Mundial de Países más Turísticos (2023)</h2>
+                <div class="chart-wrapper">
+                    <div id="geochart" class="chart geo-chart"></div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Datos basados en últimas elecciones generales y estadísticas de turismo 2023</p>
+        </footer>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd2XxZ8Yh9-BSI5Ej9O8xbbAS9cPZgvU4&libraries=places"></script>
+        <script src="Ejercicio 1.js"></script>
+    </body>
+</html>

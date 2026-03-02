@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Almeria">
+  <image url="almeria.jpg" alt="Almería 1"/>
+  <image url="almeria1.jpg" alt="Almería 2"/>
+</imagenes>

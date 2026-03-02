@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto Vue.js - Mario</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <header>
+        <h1>Proyecto Vue.js - Mario/a</h1>
+      </header>
+
+      <main>
+        <div class="input-row">
+          <input
+            v-model="newTask"
+            @keyup.enter="addTask"
+            type="text"
+            placeholder="¿Qué quieres recordar?"
+            aria-label="Nueva tarea"
+          />
+          <button @click="addTask">Añadir</button>
+        </div>
+
+        <div class="input-row">
+          <input
+            v-model="filterText"
+            type="text"
+            placeholder="Filtrar tareas por inicio del texto"
+            aria-label="Filtrar tareas"
+          />
+        </div>
+
+        <div class="stats">
+          <span>📊 {{ pendingCount }} Tareas pendientes de un total de {{ totalCount }}</span>
+          <span>|</span>
+          <a @click="clearCompleted">Borrar tareas completadas</a>
+        </div>
+
+        <transition-group name="fade" tag="section" class="list">
+          <article v-for="t in sortedAndFiltered" :key="t.id" class="item">
+            <div class="toggle" :class="{completed: t.completed}" @click="toggle(t)">
+              <span v-if="t.completed">✔</span>
+            </div>
+            <div>
+              <div class="title" :class="{completed: t.completed}">{{ t.text }}</div>
+              <div class="meta">
+                <span>Prioridad:</span>
+                <div class="badges">
+                  <span class="badge" :class="{active: t.priority==='low', low:true}" @click="setPriority(t, 'low')">Baja</span>
+                  <span class="badge" :class="{active: t.priority==='normal', normal:true}" @click="setPriority(t, 'normal')">Normal</span>
+                  <span class="badge" :class="{active: t.priority==='high', high:true}" @click="setPriority(t, 'high')">Alta</span>
+                </div>
+                <span>•</span>
+                <span>Añadido {{ relativeTime(t.createdAt) }}</span>
+              </div>
+            </div>
+            <button class="remove" @click="remove(t)">⛔</button>
+          </article>
+        </transition-group>
+      </main>
+
+      <footer>
+        Desarrollado por "Mario".<br />
+        Código disponible en <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>.
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
+

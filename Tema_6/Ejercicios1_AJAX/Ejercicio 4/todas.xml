@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Todas">
+  <image url="granada1.jpg" alt="Granada 1">
+    <desc>Vista de Sierra Nevada cerca de Granada.</desc>
+  </image>
+  <image url="granada.jpg" alt="Granada 2">
+    <desc>Entorno natural al atardecer en la provincia de Granada.</desc>
+  </image>
+  <image url="almeria1.jpg" alt="Almería 1">
+    <desc>Playas y paisaje árido característico de Almería.</desc>
+  </image>
+  <image url="almeria.jpg" alt="Almería 2">
+    <desc>Acantilados y costa mediterránea de Almería.</desc>
+  </image>
+  <image url="jaen1.jpg" alt="Jaén 1">
+    <desc>Mar de olivos típico de la provincia de Jaén.</desc>
+  </image>
+  <image url="jaen.jpg" alt="Jaén 2">
+    <desc>Paisaje interior con colinas y vegetación.</desc>
+  </image>
+</imagenes>

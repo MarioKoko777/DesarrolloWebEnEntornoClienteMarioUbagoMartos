@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario de contacto</title>
+    </head>
+    <body>
+        <h1>Formulario de contacto</h1>
+        <form action="#" method="post">
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <span id="info-nombre" style="display: none;">aqui escribe tu nombre</span>	
+            </p>
+            <p>
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                <span id="info-correo" style="display: none;">recuerda que tu correo electrónico debe tener el formato ejemplo@example.com</span>	
+            </p>
+            <p>
+                <label for="comentarios">Comentarios:</label><br>
+                <textarea id="comentarios" name="comentarios" rows="5" cols="40" required></textarea>
+                <span id="info-comentarios" style="display: none;">escribe un comentario sobre que te parece esta empresa y su manera de trabajar</span>
+            </p>
+            <p>
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+            </p>
+        </form>
+        <script src="Ejercicio 7.js"></script>
+    </body>
+</html>

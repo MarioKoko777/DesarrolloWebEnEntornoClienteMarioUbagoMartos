@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Post-it App - Gestión de Notas</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>📝 Mis Post-it Notes</h1>
+                <div class="view-controls">
+                    <button id="btnVistaGrid" class="active">Vista Cuadrícula</button>
+                    <button id="btnVistaLista">Vista Lista</button>
+                </div>
+            </header>
+            <div class="create-note">
+                <h2>Crear nueva nota</h2>
+                <form id="formCrearNota">
+                    <input type="text" id="tituloNota" placeholder="Título de la nota" required>
+                    <textarea id="textoNota" placeholder="Contenido de la nota..." required></textarea>
+                    <button type="submit">➕ Crear Nota</button>
+                </form>
+            </div>
+            <div id="contenedor-notas" class="notes-container grid-view">
+                <!-- Las notas se renderizarán aquí -->
+            </div>
+        </div>
+        <!-- Scripts -->
+        <script src="js/utils/tiempo.js"></script>
+        <script src="js/modelos/Nota.js"></script>
+        <script src="js/vistas/VistaGrid.js"></script>
+        <script src="js/vistas/VistaLista.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

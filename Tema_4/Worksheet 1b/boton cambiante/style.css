@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+#miBoton {
+    padding: 30px 60px;
+    font-size: 2rem;
+    background-color: #007bff; /* Color original */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#miBoton:active {
+    transform: scale(0.95);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rompecabezas deslizante</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:20px}
+        h1{font-size:20px;margin:0 0 12px}
+        .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .controls button{padding:8px 12px;font-size:14px;cursor:pointer}
+        #status{margin:8px 0;font-weight:600}
+        #grid{display:grid;grid-template-columns:repeat(4,64px);grid-auto-rows:64px;gap:8px;margin-top:8px}
+        .cell{display:flex;align-items:center;justify-content:center;border:1px solid #ccc;border-radius:6px;font-size:18px;background:#f7f7f7}
+        .cell.empty{background:#fff;border:1px dashed #bbb}
+        pre{background:#111;color:#eee;padding:10px;border-radius:6px;overflow:auto}
+        label,input{font-size:14px}
+        input[type=text]{padding:6px;border:1px solid #ccc;border-radius:4px}
+        .small{font-size:12px;color:#555}
+        </style>
+    </head>
+    <body>
+        <h1>Rompecabezas deslizante (15‑puzzle)</h1>
+        <div class="controls">
+        <button id="up">ARRIBA</button>
+        <button id="down">ABAJO</button>
+        <button id="left">IZQUIERDA</button>
+        <button id="right">DERECHA</button>
+        <input id="cmd" type="text" placeholder="Ingrese movimiento (ARRIBA/ABAJO/IZQUIERDA/DERECHA/SALIR)">
+        <button id="send">Enviar</button>
+        <button id="restart">Reiniciar</button>
+        <button id="quit">Salir</button>
+        </div>
+        <div id="status"></div>
+        <div class="small">Vista de texto (como en el enunciado):</div>
+        <pre id="textBoard"></pre>
+        <div id="grid"></div>
+        <script src="rompecabezasDeslizante.js"></script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejercicios – AJAX (III) – Predicción AEMET por municipio</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;margin:0;padding:2rem;background:#f7f7f7;color:#222}
+    .wrap{max-width:900px;margin:0 auto;background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:1.5rem}
+    h1{font-size:1.5rem;margin:0 0 1rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Predicción del tiempo por municipio (AEMET)</h1>
+    <form id="weather-form">
+      <div>
+        <label for="municipio">Municipio</label>
+        <input id="municipio" name="municipio" list="lista-municipios" placeholder="Escribe nombre o código" autocomplete="on">
+        <datalist id="lista-municipios"></datalist>
+        <button type="button" id="btn-daily">Consultar diaria</button>
+        <button type="button" id="btn-hourly">Consultar horaria</button>
+      </div>
+    </form>
+    <div id="code" style="margin:.5rem 0;font-size:.9rem;color:#555"></div>
+    <div id="result" style="margin-top:1rem"></div>
+  </div>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js"></script>
+</body>
+</html>

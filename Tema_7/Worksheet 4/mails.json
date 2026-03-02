@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "from": "soporte@example.com",
+    "subject": "Bienvenido a nuestro servicio",
+    "preview": "Gracias por registrarte. Aquí tienes algunos consejos para empezar.",
+    "date": "2026-02-24T08:30:00.000Z",
+    "folder": "inbox"
+  },
+  {
+    "id": 2,
+    "from": "facturacion@example.com",
+    "subject": "Factura disponible",
+    "preview": "Tu factura del mes ya está lista para descargar.",
+    "date": "2026-02-24T09:10:00.000Z",
+    "folder": "inbox"
+  },
+  {
+    "id": 3,
+    "from": "rrhh@example.com",
+    "subject": "Reunión de equipo",
+    "preview": "Recordatorio: reunión de equipo hoy a las 16:00.",
+    "date": "2026-02-24T10:00:00.000Z",
+    "folder": "inbox"
+  },
+  {
+    "id": 4,
+    "from": "novedades@example.com",
+    "subject": "Nuevas funciones disponibles",
+    "preview": "Hemos lanzado nuevas funcionalidades. Échales un vistazo cuando puedas.",
+    "date": "2026-02-24T10:30:00.000Z",
+    "folder": "inbox"
+  }
+]

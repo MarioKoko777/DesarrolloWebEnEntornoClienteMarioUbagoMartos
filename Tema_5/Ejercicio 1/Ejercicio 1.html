@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Análisis de Enlaces con DOM</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                line-height: 1.6;
+            }
+            p {
+                background-color: #f9f9f9;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 15px 0;
+            }
+            .resultados {
+                background-color: #e3f2fd;
+                border: 2px solid #2196F3;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 30px;
+            }
+            .resultados p {
+                background-color: transparent;
+                padding: 5px 0;
+                margin: 5px 0;
+            }
+            a {
+                color: #0066cc;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Análisis de Enlaces mediante el DOM</h1>
+        <!-- Primer párrafo con enlaces -->
+        <p>
+            En este primer párrafo tenemos varios enlaces interesantes. Podemos visitar 
+            <a href="https://www.google.com">Google</a> para realizar búsquedas, o quizás 
+            prefieras consultar <a href="https://www.wikipedia.org">Wikipedia</a> para 
+            obtener información general. También tenemos un enlace a 
+            <a href="https://www.github.com">GitHub</a> para desarrolladores.
+        </p>
+        <!-- Segundo párrafo con enlaces -->
+        <p>
+            El segundo párrafo contiene enlaces a recursos educativos. Por ejemplo, 
+            <a href="https://www.google.com">Google</a> es útil para investigación, 
+            mientras que <a href="https://www.stackoverflow.com">Stack Overflow</a> 
+            es perfecto para programadores. No olvides visitar 
+            <a href="https://www.google.com">Google</a> para buscar más recursos.
+            También tenemos <a href="https://www.w3schools.com">W3Schools</a> para 
+            aprender desarrollo web.
+        </p>
+        <!-- Tercer párrafo con enlaces (este es el que analizaremos para el último punto) -->
+        <p>
+            Este es el tercer párrafo y contiene enlaces específicos. Podemos acceder a 
+            <a href="https://www.google.com">Google</a>, a 
+            <a href="https://www.youtube.com">YouTube</a> para videos, y nuevamente a 
+            <a href="https://www.google.com">Google</a> para búsquedas adicionales. 
+            También tenemos <a href="https://www.spotify.com">Spotify</a> para música.
+        </p>
+        <!-- Sección donde mostraremos los resultados -->
+        <div class="resultados" id="resultados">
+            <h2>Resultados del análisis DOM:</h2>
+            <p id="totalEnlaces">Calculando número total de enlaces...</p>
+            <p id="penultimoEnlace">Obteniendo el penúltimo enlace...</p>
+            <p id="enlacesGoogle">Contando enlaces a Google...</p>
+            <p id="enlacesTercerParrafo">Analizando enlaces del tercer párrafo...</p>
+        </div>
+        <!-- Vinculamos el archivo JavaScript externo -->
+        <script src="Ejercicio 1.js" defer></script>
+    </body>
+</html>

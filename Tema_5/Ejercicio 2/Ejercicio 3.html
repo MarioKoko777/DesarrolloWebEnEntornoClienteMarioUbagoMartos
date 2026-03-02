@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Puzzle de Imagen - Juego del 15</title>
+        <link rel="stylesheet" href="Ejercicio 3.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>🧩 Puzzle de Imagen</h1>
+            <div class="game-info">
+                <div class="move-counter">Movimientos: <span id="moveCount">0</span></div>
+                <div class="image-selector">
+                    <label for="imageSelect">Elige una imagen:</label>
+                    <select id="imageSelect">
+                        <option value="nature">Naturaleza</option>
+                        <option value="city">Ciudad</option>
+                        <option value="abstract">Abstracto</option>
+                        <option value="custom">Personalizada</option>
+                    </select>
+                </div>
+            </div>
+            <div class="puzzle-container">
+                <div class="board" id="board"></div>
+                <div class="preview-container">
+                    <h3>Vista previa:</h3>
+                    <div class="preview-board" id="previewBoard"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="shuffleBtn">Mezclar</button>
+                <button id="resetBtn">Reiniciar</button>
+            </div>
+            <div class="message" id="message"></div>
+        </div>
+        <!-- Modal para subir imagen personalizada -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Sube tu propia imagen</h2>
+                <p>Selecciona una imagen desde tu dispositivo:</p>
+                <input type="file" id="imageUpload" accept="image/*">
+                <div class="modal-preview">
+                    <img id="uploadPreview" src="#" alt="Vista previa">
+                </div>
+                <button id="applyImageBtn">Aplicar imagen</button>
+            </div>
+        </div>
+        <script src="Ejercicio 3.js"></script>
+    </body>
+</html>

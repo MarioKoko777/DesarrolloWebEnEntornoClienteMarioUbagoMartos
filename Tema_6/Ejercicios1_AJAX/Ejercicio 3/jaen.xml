@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Jaen">
+  <image url="jaen.jpg" alt="Jaén 1"/>
+  <image url="jaen1.jpg" alt="Jaén 2"/>
+</imagenes>

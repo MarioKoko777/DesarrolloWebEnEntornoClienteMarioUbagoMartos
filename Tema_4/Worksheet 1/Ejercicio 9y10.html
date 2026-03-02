@@ -1,0 +1,79 @@
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arrastrar Múltiples Imágenes con Shift</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .instructions {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                margin-bottom: 20px;
+                position: relative;
+                z-index: 10; /* Para que el texto no quede oculto accidentalmente */
+            }
+            h1 {
+                color: #333;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            ul {
+                line-height: 1.6;
+                color: #555;
+            }
+            .arrastrable {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                cursor: grab;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                border: 3px solid #fff;
+                /* Importante para evitar el comportamiento nativo de arrastre fantasma */
+                user-select: none;
+                -webkit-user-drag: none;
+                transition: box-shadow 0.2s, transform 0.1s;
+            }
+            .arrastrable:hover {
+                border-color: #007bff;
+            }
+            .arrastrable.arrastando {
+                cursor: grabbing;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+                transform: scale(1.05);
+                /* z-index será manejado por JS para asegurar que siempre esté arriba */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="instructions">
+                <h1>Arrastrar Múltiples Imágenes</h1>
+                <p>Sigue estos pasos para probar la funcionalidad:</p>
+                <ul>
+                    <li>1. Mantén presionada la tecla <strong>Shift</strong> (Mayús).</li>
+                    <li>2. Haz clic sobre cualquier imagen para "agarrarla".</li>
+                    <li>3. Mueve el ratón para arrastrarla.</li>
+                    <li>4. Suelta la tecla <strong>Shift</strong> para soltarla.</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Imágenes arrastrables -->
+        <img class="arrastrable" src="https://picsum.photos/id/237/200/200" alt="Perrito" style="top: 300px; left: 50px; z-index: 1;">
+        <img class="arrastrable" src="https://picsum.photos/id/1025/200/200" alt="Pug en manta" style="top: 300px; left: 250px; z-index: 1;">
+        <img class="arrastrable" src="https://picsum.photos/id/1062/200/200" alt="Perrito envuelto" style="top: 300px; left: 450px; z-index: 1;">
+        <script src="Ejercicio 9y10.js"></script>
+    </body>
+</html>

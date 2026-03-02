@@ -1,0 +1,83 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #fff3e0;
+    text-align: center;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    color: #e65100;
+}
+
+#instruccion {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#numero-objetivo {
+    font-weight: bold;
+    color: #d84315;
+    font-size: 2rem;
+}
+
+.grid-numeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn-numero {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn-numero:hover {
+    background-color: #f57c00;
+}
+
+.btn-numero:active {
+    transform: scale(0.95);
+}
+
+#mensaje {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 1.5em;
+    margin-bottom: 10px;
+}
+
+#btn-reiniciar {
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#btn-reiniciar:hover {
+    background-color: #555;
+}

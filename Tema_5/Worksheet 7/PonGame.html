@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pong Game JavaScript</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>PONG GAME</h1>
+            <div class="score-board">
+                <div class="score" id="playerScore">0</div>
+                <div class="score" id="computerScore">0</div>
+            </div>
+            <canvas id="pongCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button id="startBtn">Iniciar Juego</button>
+                <button id="pauseBtn">Pausa</button>
+                <button id="resetBtn">Reiniciar</button>
+            </div>
+            <div class="difficulty">
+                <label>Dificultad:</label>
+                <select id="difficultySelect">
+                    <option value="easy">Fácil</option>
+                    <option value="medium" selected>Medio</option>
+                    <option value="hard">Difícil</option>
+                </select>
+            </div>
+            <div class="instructions">
+                <p>Usa las flechas ↑ y ↓ para mover tu paleta</p>
+            </div>
+        </div>
+        <script src="PonGame.js"></script>
+    </body>
+</html>

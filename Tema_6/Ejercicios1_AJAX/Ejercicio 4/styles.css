@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial;
+  background: #0e0f12;
+  color: #eaeaf0;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+h1 { margin: 0 0 16px; font-size: 22px; }
+h2 { margin: 18px 0 8px; font-size: 18px; }
+.controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.btn {
+  background: #151720;
+  color: #eaeaf0;
+  border: 1px solid #242633;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+.status, .desc {
+  background: #151720;
+  border: 1px solid #242633;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 40px;
+}
+.desc { min-height: 60px; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #242633;
+  background: #0e0f12;
+}

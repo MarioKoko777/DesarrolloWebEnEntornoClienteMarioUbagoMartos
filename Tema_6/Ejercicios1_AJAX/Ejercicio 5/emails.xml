@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emails>
+  <email id="1">
+    <from>Ana &lt;ana@example.com&gt;</from>
+    <subject>Bienvenida</subject>
+    <body>¡Hola! Te damos la bienvenida al sistema.</body>
+    <receivedAt>2026-02-26T09:00:00Z</receivedAt>
+  </email>
+  <email id="2">
+    <from>Marcos &lt;marcos@example.com&gt;</from>
+    <subject>Reunión</subject>
+    <body>¿Podemos mover la reunión al viernes?</body>
+    <receivedAt>2026-02-26T10:15:00Z</receivedAt>
+  </email>
+  <email id="3">
+    <from>Soporte &lt;soporte@example.com&gt;</from>
+    <subject>Ticket actualizado</subject>
+    <body>Se ha actualizado tu ticket con nueva información.</body>
+    <receivedAt>2026-02-26T11:20:00Z</receivedAt>
+  </email>
+</emails>

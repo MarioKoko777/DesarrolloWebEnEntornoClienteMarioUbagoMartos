@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1709123456789",
+        "titulo": "Bienvenido a Post-it App",
+        "texto": "Esta es una nota de ejemplo. Puedes arrastrarla, editarla o eliminarla.",
+        "horaCreacion": 1709123456789,
+        "posX": 10,
+        "posY": 15
+    },
+    {
+        "id": "1709123467890",
+        "titulo": "Recordatorio importante",
+        "texto": "Comprar leche, pan y huevos mañana por la mañana.",
+        "horaCreacion": 1709123467890,
+        "posX": 5,
+        "posY": 8
+    },
+    {
+        "id": "1709123478901",
+        "titulo": "Idea para proyecto",
+        "texto": "Implementar una función que permita cambiar el color de las notas.",
+        "horaCreacion": 1709123478901,
+        "posX": 15,
+        "posY": 22
+    }
+]

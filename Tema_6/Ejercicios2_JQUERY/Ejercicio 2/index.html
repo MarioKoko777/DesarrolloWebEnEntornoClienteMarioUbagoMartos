@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ejercicio 2 — Menú animado jQuery</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+<h1>Ejercicio 2 — Menú animado jQuery</h1>
+<nav id="menu" class="menu">
+<button id="toggle-menu" class="toggle">Menú</button>
+<ul class="items">
+<li><a href="#">Inicio</a></li>
+<li class="has-sub">
+<a href="#">Productos</a>
+<ul class="sub">
+<li><a href="#">Novedades</a></li>
+<li><a href="#">Populares</a></li>
+<li><a href="#">Ofertas</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="#">Servicios</a>
+<ul class="sub">
+<li><a href="#">Soporte</a></li>
+<li><a href="#">Consultoría</a></li>
+<li><a href="#">Formación</a></li>
+</ul>
+</li>
+<li><a href="#">Contacto</a></li>
+</ul>
+</nav>
+<main class="content">
+<p>Selecciona un elemento del menú para ver la animación.</p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

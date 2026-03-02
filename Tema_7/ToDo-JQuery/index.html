@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recordatorios - TODO jQuery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1 class="title">Recordatorios</h1>
+        <div class="controls">
+          <input id="new-todo" class="new-todo" type="text" placeholder="Escribe una nota y pulsa Enter">
+          <select id="new-priority" class="priority-select" aria-label="Prioridad">
+            <option>Low</option>
+            <option selected>Normal</option>
+            <option>High</option>
+          </select>
+          <button id="add-btn" class="add-btn" type="button">Agregar</button>
+          <div class="status">
+            <span id="counter" class="counter"></span>
+            <a href="#" id="clear-completed" class="clear-completed">Borrar completadas</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="list-section">
+        <ul id="todo-list" class="todo-list"></ul>
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SIsO6Z8G3N9eGIK3j8mZ6Yj2YJwYh7aVtGv0A8=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

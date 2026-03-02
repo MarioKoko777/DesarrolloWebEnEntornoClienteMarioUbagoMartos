@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+}
+
+.color-square {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px solid #333;
+    transition: transform 0.1s;
+}
+
+.color-square:active {
+    transform: scale(0.95);
+}
+
+#rojo { background-color: red; }
+#azul { background-color: blue; }
+#verde { background-color: green; }
+#amarillo { background-color: yellow; }
+
+#resultado {
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 24px;
+}

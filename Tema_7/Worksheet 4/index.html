@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cliente de Correo - AJAX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1 class="title">Correo AJAX</h1>
+        <div class="status">
+          <span id="last-check" class="muted"></span>
+          <span id="new-badge" class="badge hidden"></span>
+        </div>
+      </header>
+
+      <nav class="nav">
+        <button id="tab-inbox" class="tab active" type="button">Entrada</button>
+        <button id="tab-sent" class="tab" type="button">Enviados</button>
+        <div class="spacer"></div>
+      </nav>
+
+      <section id="compose" class="compose-panel hidden">
+        <div class="form-row">
+          <label for="to">Para</label>
+          <input id="to" type="email" placeholder="alguien@ejemplo.com">
+        </div>
+        <div class="form-row">
+          <label for="subject">Asunto</label>
+          <input id="subject" type="text" placeholder="Asunto">
+        </div>
+        <div class="form-row">
+          <label for="body">Mensaje</label>
+          <textarea id="body" rows="6" placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+        <div class="actions">
+          <button id="send-btn" class="send" type="button">Enviar</button>
+          <button id="cancel-compose" class="cancel" type="button">Cancelar</button>
+          <span id="compose-status" class="muted"></span>
+        </div>
+      </section>
+
+      <section id="list-section" class="list-section">
+        <ul id="mail-list" class="mail-list"></ul>
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

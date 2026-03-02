@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial;
+  background: #0e0f12;
+  color: #eaeaf0;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+h1 { margin: 0 0 12px; font-size: 22px; }
+h2 { margin: 18px 0 8px; font-size: 18px; }
+.toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.btn {
+  background: #151720;
+  color: #eaeaf0;
+  border: 1px solid #242633;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.status {
+  background: #151720;
+  border: 1px solid #242633;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.mail {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  background: #151720;
+  border: 1px solid #242633;
+  border-radius: 10px;
+  padding: 10px;
+}
+.from { font-weight: 600; }
+.subject { color: #eaeaf0; }
+.date { color: #9aa0b0; font-size: 12px; }
+.snippet { color: #cfd3e0; grid-column: 1 / -1; }

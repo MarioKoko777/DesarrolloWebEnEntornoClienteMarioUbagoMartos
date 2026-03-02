@@ -1,0 +1,35 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0f7fa;
+    text-align: center;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#instruccion {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#tecla-objetivo {
+    font-weight: bold;
+    color: #00796b;
+    font-size: 2rem;
+}
+
+#resultado {
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 1.5rem;
+    margin-top: 1rem;
+}

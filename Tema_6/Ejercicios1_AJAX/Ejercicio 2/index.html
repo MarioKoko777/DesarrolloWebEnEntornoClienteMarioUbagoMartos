@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejercicio 2 · AJAX</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Ejercicio 2 · AJAX</h1>
+    <div class="row">
+      <label for="urlInput">URL</label>
+      <input id="urlInput" class="input" type="text" placeholder="https://">
+      <button id="fetchBtn" class="btn">Mostrar Contenidos</button>
+    </div>
+    <section>
+      <h2>Estados de la petición</h2>
+      <div id="stateZone" class="box"></div>
+    </section>
+    <section>
+      <h2>Cabeceras HTTP de la respuesta del servidor</h2>
+      <pre id="headersZone" class="box"></pre>
+    </section>
+    <section>
+      <h2>Código de estado</h2>
+      <div id="codeZone" class="box"></div>
+    </section>
+    <section>
+      <h2>Contenidos del archivo</h2>
+      <pre id="fileContent" class="box"></pre>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

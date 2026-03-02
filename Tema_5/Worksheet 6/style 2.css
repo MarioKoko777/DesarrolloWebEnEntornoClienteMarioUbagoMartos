@@ -1,0 +1,133 @@
+/* Añade estos estilos al final de tu archivo styles.css existente */
+
+.timer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.timer-badge {
+    background: #ff6b6b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        background: #ff5252;
+        box-shadow: 0 2px 15px rgba(255, 82, 82, 0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.reset-btn {
+    background: #4ecdc4;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.reset-btn:hover {
+    background: #45b7aa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+.data-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.data-version {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.update-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.update-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.update-btn:active {
+    transform: translateY(0);
+}
+
+.animation-note {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: #ffd700;
+    font-style: italic;
+}
+
+/* Indicador de cambio de datos */
+@keyframes dataChanged {
+    0% {
+        background: #ffd700;
+    }
+    100% {
+        background: transparent;
+    }
+}
+
+.data-changed {
+    animation: dataChanged 1s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .data-indicator {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}

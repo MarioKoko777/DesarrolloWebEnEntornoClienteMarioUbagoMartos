@@ -1,0 +1,94 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #222;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+#mensaje {
+    font-size: 1.2rem;
+    height: 1.5em;
+}
+
+.simon-board {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.btn-simon {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.1s, transform 0.1s;
+    border: 4px solid #111;
+}
+
+.btn-simon:active {
+    transform: scale(0.95);
+}
+
+/* Bordes redondeados para formar un círculo */
+#verde {
+    background-color: #00ff00;
+    border-top-left-radius: 100%;
+}
+
+#rojo {
+    background-color: #ff0000;
+    border-top-right-radius: 100%;
+}
+
+#amarillo {
+    background-color: #ffff00;
+    border-bottom-left-radius: 100%;
+}
+
+#azul {
+    background-color: #0000ff;
+    border-bottom-right-radius: 100%;
+}
+
+/* Clases para el efecto de brillo/parpadeo */
+.active {
+    opacity: 1 !important;
+    box-shadow: 0 0 20px inset white;
+}
+
+#btn-start {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#btn-start:hover {
+    background-color: #ddd;
+}

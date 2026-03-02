@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Granada">
+  <image url="granada1.jpg" alt="Granada 1">
+    <desc>Vista de Sierra Nevada cerca de Granada.</desc>
+  </image>
+  <image url="granada.jpg" alt="Granada 2">
+    <desc>Entorno natural al atardecer en la provincia de Granada.</desc>
+  </image>
+</imagenes>

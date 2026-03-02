@@ -1,0 +1,8 @@
+form div{display:flex;gap:.5rem;align-items:center;margin:.4rem 0}
+label{min-width:180px}
+input{flex:1;padding:.35rem .5rem;border:1px solid #cfcfcf;border-radius:6px}
+button{padding:.5rem .8rem;border:1px solid #6b8cff;border-radius:6px;background:#7795ff;color:#fff;cursor:pointer}
+button:hover{background:#5e80ff}
+#resultado{margin-top:1rem}
+.grid{display:grid;grid-template-columns:200px 1fr;gap:.35rem .75rem}
+.grid div{padding:.25rem .35rem;background:#f9fbff;border:1px solid #e5ecff;border-radius:6px}

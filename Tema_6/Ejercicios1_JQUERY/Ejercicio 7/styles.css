@@ -1,0 +1,11 @@
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:24px;background:#f7f7f9;color:#222}
+h1{margin:0 0 16px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.acciones{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+button{appearance:none;border:1px solid #d1d5db;background:#111827;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}
+button:hover{background:#374151}
+table{border-collapse:collapse;width:100%;max-width:420px}
+td{border:1px solid #e5e7eb;padding:8px}
+tr.activo{background:#fde68a}
+ul{padding-left:20px}

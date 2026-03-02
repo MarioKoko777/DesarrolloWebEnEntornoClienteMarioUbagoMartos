@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Jaen">
+  <image url="jaen1.jpg" alt="Jaén 1">
+    <desc>Mar de olivos típico de la provincia de Jaén.</desc>
+  </image>
+  <image url="jaen.jpg" alt="Jaén 2">
+    <desc>Paisaje interior con colinas y vegetación.</desc>
+  </image>
+</imagenes>

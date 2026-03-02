@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Artículo con función Leer Más</title>
+    </head>
+    <body>
+        <h1>Mis Artículos</h1>
+        <!-- Artículo 1 -->
+        <div class="article">
+            <h2>El Fascinante Mundo de la Astronomía</h2>
+            <div class="content">
+                <p class="preview">
+                    La astronomía es la ciencia que estudia los cuerpos celestes del universo, incluyendo estrellas, planetas, satélites, cometas y galaxias. Desde tiempos antiguos, la humanidad ha sentido fascinación por el cielo nocturno...
+                </p>
+                <div id="fullText1" class="full-text" style="display: none;">
+                    <p>La astronomía no solo se limita a la observación de objetos celestes, sino que también investiga sus movimientos, composición química, evolución física y los fenómenos que ocurren más allá de la atmósfera terrestre.</p>
+                    <p>Gracias a los avances tecnológicos, hoy podemos explorar el universo con telescopios espaciales como el Hubble y el James Webb, que nos han proporcionado imágenes impresionantes de galaxias distantes, nebulosas y exoplanetas. Estos descubrimientos continúan ampliando nuestra comprensión del cosmos y nuestro lugar en él.</p>
+                </div>
+                <button onclick="toggleArticle('fullText1', this)">Ver Artículo Completo</button>
+            </div>
+            <hr>
+        </div>
+        <!-- Artículo 2 -->
+        <div class="article">
+            <h2>El Futuro de la Inteligencia Artificial</h2>
+            <div class="content">
+                <p class="preview">
+                    La Inteligencia Artificial está transformando rápidamente todos los aspectos de nuestra sociedad. Desde asistentes virtuales hasta vehículos autónomos, la IA está revolucionando la forma en que vivimos y trabajamos...
+                </p>
+                <div id="fullText2" class="full-text" style="display: none;">
+                    <p>Los avances en machine learning y deep learning están permitiendo crear sistemas cada vez más sofisticados capaces de realizar tareas que antes solo podían hacer los humanos. La IA generativa, por ejemplo, puede crear arte, música y texto de manera autónoma.</p>
+                    <p>Sin embargo, este rápido avance también plantea importantes cuestiones éticas sobre privacidad, empleo y el futuro de la humanidad. Es crucial desarrollar un marco regulatorio que garantice un desarrollo responsable de esta tecnología.</p>
+                </div>
+                <button onclick="toggleArticle('fullText2', this)">Ver Artículo Completo</button>
+            </div>
+            <hr>
+        </div>
+        <!-- Artículo 3 -->
+        <div class="article">
+            <h2>Consejos para un Estilo de Vida Sostenible</h2>
+            <div class="content">
+                <p class="preview">
+                    Adoptar un estilo de vida sostenible no solo beneficia al planeta, sino que también mejora nuestra calidad de vida. Pequeños cambios en nuestra rutina diaria pueden tener un gran impacto...
+                </p>
+                <div id="fullText3" class="full-text" style="display: none;">
+                    <p>Algunas acciones simples incluyen reducir el consumo de plásticos, optar por transporte público o bicicleta, ahorrar energía en casa y consumir productos locales y de temporada. También es importante reducir el desperdicio de alimentos y practicar el reciclaje correctamente.</p>
+                    <p>Recuerda que la sostenibilidad no se trata de ser perfecto, sino de tomar decisiones conscientes que, sumadas, contribuyen a un futuro más verde y saludable para todos.</p>
+                </div>
+                <button onclick="toggleArticle('fullText3', this)">Ver Artículo Completo</button>
+            </div>
+            <hr>
+        </div>
+        <script src="Ejercicio 2.js"></script>
+    </body>
+</html>

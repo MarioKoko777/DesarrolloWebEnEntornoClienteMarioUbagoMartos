@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Pairs Game</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#7dd3e8;color:#fff;display:flex;min-height:100vh;align-items:center;justify-content:center}
+.wrap{max-width:980px;width:100%;padding:32px;text-align:center}
+.h1{font-size:44px;letter-spacing:2px}
+.h2{font-size:16px;margin-top:6px;opacity:.9}
+.stats{display:flex;gap:16px;justify-content:center;margin:14px 0}
+.stat{background:rgba(255,255,255,.18);padding:6px 12px;border-radius:8px;font-size:16px}
+.time{font-family:Consolas,monospace}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(80px,120px));gap:14px;justify-content:center;margin:18px auto}
+.card{position:relative;width:100%;aspect-ratio:3/4;border:none;border-radius:12px;background:#e9eef2;color:#333;font-size:40px;cursor:pointer;transition:transform .12s, box-shadow .12s;box-shadow:0 1px 0 rgba(0,0,0,.1);overflow:hidden}
+.card:hover{transform:translateY(-1px)}
+.card[aria-disabled="true"]{opacity:.6;cursor:default}
+.card .face{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.card .back{background:#e9eef2 url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><path d=%22M0 20 L200 20 M0 100 L200 100 M0 180 L200 180 M20 0 L20 200 M100 0 L100 200 M180 0 L180 200%22 stroke=%22%23dfe5ea%22 stroke-width=%223%22/></svg>') center/cover no-repeat}
+.card.flipped .back{display:none}
+.card:not(.flipped) .front{display:none}
+.row{display:flex;gap:12px;justify-content:center;margin-top:10px}
+.btn{background:transparent;border:2px solid rgba(255,255,255,.9);color:#fff;border-radius:10px;padding:10px 18px;font-size:16px;cursor:pointer;transition:all .15s}
+.btn:hover{background:rgba(255,255,255,.12)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.result{margin-top:10px;font-size:18px}
+@media (max-width:600px){.grid{grid-template-columns:repeat(4,minmax(64px,1fr))}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="h1">JAVASCRIPT PAIRS GAME</div>
+  <div class="h2">CLICK ANY CARD TO BEGIN</div>
+  <div class="stats">
+    <div class="stat">Time <span id="time" class="time">00:00</span></div>
+    <div class="stat">Moves <span id="moves">40</span></div>
+  </div>
+  <div id="grid" class="grid" aria-label="Cards grid"></div>
+  <div class="row">
+    <button id="restart" class="btn">Restart</button>
+    <button id="harder" class="btn">Harder</button>
+  </div>
+  <div id="result" class="result"></div>
+</div>
+<script src="pairs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Granada">
+  <image url="granada1.jpg" alt="Granada 1"/>
+  <image url="granada.jpg" alt="Granada 2"/>
+</imagenes>

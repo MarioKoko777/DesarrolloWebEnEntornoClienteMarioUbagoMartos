@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - Cookies mejorado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .config-panel {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .config-panel h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+        
+        .config-group {
+            margin-bottom: 15px;
+        }
+        
+        .config-group label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+        
+        .config-group input[type="color"] {
+            width: 60px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        
+        .config-group select {
+            padding: 5px;
+            width: 100px;
+        }
+        
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        button.cerrar-sesion {
+            background-color: #f44336;
+        }
+        
+        button.cerrar-sesion:hover {
+            background-color: #da190b;
+        }
+        
+        button.restablecer {
+            background-color: #ff9800;
+        }
+        
+        button.restablecer:hover {
+            background-color: #e68a00;
+        }
+        
+        #saludo p {
+            transition: all 0.3s;
+        }
+        
+        .mensaje-info {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 2 - Cookie de usuario con preferencias</h1>
+    <div id="saludo"></div>
+    <script src="Ejercicio 2.js"></script>
+</body>
+</html>

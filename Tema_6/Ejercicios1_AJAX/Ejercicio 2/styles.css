@@ -1,0 +1,45 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial;
+  background: #0e0f12;
+  color: #eaeaf0;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+h1 { margin: 0 0 16px; font-size: 22px; }
+h2 { margin: 18px 0 8px; font-size: 18px; }
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.input {
+  background: #151720;
+  color: #eaeaf0;
+  border: 1px solid #242633;
+  padding: 8px;
+  border-radius: 8px;
+}
+.btn {
+  background: #151720;
+  color: #eaeaf0;
+  border: 1px solid #242633;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+.btn:disabled { opacity: .7; }
+.box {
+  background: #151720;
+  border: 1px solid #242633;
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 80px;
+  white-space: pre-wrap;
+  overflow: auto;
+}

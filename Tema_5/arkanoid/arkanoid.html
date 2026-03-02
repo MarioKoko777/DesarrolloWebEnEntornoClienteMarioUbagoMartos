@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arkanoid DOM</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <div class="game-header">
+                <div class="score">Puntuación: <span id="score">0</span></div>
+                <div class="lives">Vidas: <span id="lives">3</span></div>
+            </div>
+            <div class="game-area" id="gameArea">
+                <!-- Los bloques se generarán aquí con JavaScript -->
+            </div>
+            <div class="game-controls">
+                <button id="startButton">Iniciar Juego</button>
+                <button id="resetButton">Reiniciar</button>
+            </div>
+            <div class="game-message" id="gameMessage"></div>
+        </div>
+        <script src="arkanoid.js"></script>
+    </body>
+</html>

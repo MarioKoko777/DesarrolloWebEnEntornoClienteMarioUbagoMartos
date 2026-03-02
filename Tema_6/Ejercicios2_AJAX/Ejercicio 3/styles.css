@@ -1,0 +1,11 @@
+form div{display:flex;gap:.5rem;align-items:center;margin:.4rem 0}
+label{min-width:180px}
+input{flex:1;padding:.35rem .5rem;border:1px solid #cfcfcf;border-radius:6px}
+button{padding:.5rem .8rem;border:1px solid #6b8cff;border-radius:6px;background:#7795ff;color:#fff;cursor:pointer}
+button:hover{background:#5e80ff}
+#resultado{margin-top:1rem}
+#preloader{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.75);z-index:1000}
+.spinner{width:42px;height:42px;border-radius:50%;border:4px solid #c8d2ff;border-top-color:#4f6bff;animation:spin 1s linear infinite}
+.msg{margin-left:1rem;color:#334;font-weight:600}
+#preloader>div{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}

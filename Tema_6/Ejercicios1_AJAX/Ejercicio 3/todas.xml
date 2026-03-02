@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagenes ciudad="Todas">
+  <image url="granada1.jpg" alt="Granada 1"/>
+  <image url="granada.jpg" alt="Granada 2"/>
+  <image url="almeria1.jpg" alt="Almería 1"/>
+  <image url="almeria.jpg" alt="Almería 2"/>
+  <image url="jaen.jpg" alt="Jaén 1"/>
+  <image url="jaen1.jpg" alt="Jaén 2"/>
+</imagenes>
